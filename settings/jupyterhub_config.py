@@ -624,7 +624,7 @@ c.Spawner.notebook_dir = '/workdir'
 #  Admin access should be treated the same way root access is.
 #  
 #  Defaults to an empty set, in which case no user has admin access.
-c.Authenticator.admin_users = set(['DOCKER_ADMIN_USER'])
+#c.Authenticator.admin_users = set(['root'])
 
 ## Automatically begin the login process
 #  
