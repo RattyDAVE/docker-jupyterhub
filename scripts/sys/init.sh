@@ -15,4 +15,7 @@ apputils_dir=~/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/
 mkdir -p $apputils_dir
 cp /settings/themes.jupyterlab-settings $apputils_dir
 
-source /scripts/sys/launch.sh 
+#source /scripts/sys/launch.sh 
+
+cd /root
+jupyterhub -f /etc/jupyterhub/jupyterhub_config.py
