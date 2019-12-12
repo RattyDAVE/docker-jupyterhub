@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-# create a user
+export M2_HOME=/usr/share/maven
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=$PATH:$JAVA_HOME/bin
 
-/scripts/sys/etc.sh pre
-
-# su -m $DOCKER_USER -c /scripts/launch.sh
 source /scripts/sys/launch.sh 
-# /scripts/sys/etc.sh post
