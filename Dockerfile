@@ -49,7 +49,8 @@ ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
 COPY scripts /scripts
 
-#RUN chmod -R 755 /scripts && /scripts/sys/create_user_nogroup.sh dave 2000
+RUN chmod -R 755 /scripts 
+#&& /scripts/sys/create_user_nogroup.sh dave 2000
 
 ENV M2_HOME=/usr/share/maven
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
@@ -65,3 +66,5 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 #        cp -Rv notebooks/ /workdir/tensorflow/ 
         
 EXPOSE 8000
+
+CMD "/scripts/sys/init.sh"
