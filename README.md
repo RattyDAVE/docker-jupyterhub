@@ -1,6 +1,6 @@
 Use https://github.com/RattyDAVE/docker-jupyterhub/issues to send feedback, issues, comments and general chat.
 
-#JupyterHub.
+# JupyterHub.
 
 Contents
 
