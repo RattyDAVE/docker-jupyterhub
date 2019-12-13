@@ -20,6 +20,7 @@ RUN apt-get update -y && \
      jupyter labextension install jupyterlab-favorites && \
      jupyter labextension install jupyterlab-recents && \
      jupyter labextension install @krassowski/jupyterlab-lsp  && \
+     jupyter labextension install jupyterlab-drawio && \
 \
 #Julia && \
     julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
