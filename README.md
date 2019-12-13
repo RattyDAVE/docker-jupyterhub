@@ -28,4 +28,4 @@ In this example 4 users will be created and only daisy will have sudo rights.
 
 At every reboot it will check this file and ADD any new users.
 
-Replace %LOCAL_PATH_TO_STARTUP.SH_FILE% with the local filename of the startup.sh script. This is run after the user creation and before the service start.
+Replace ```%LOCAL_PATH_TO_STARTUP.SH_FILE%``` with the local filename of the startup.sh script. This is run after the user creation and before the service start.
