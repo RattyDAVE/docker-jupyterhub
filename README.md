@@ -1,3 +1,12 @@
+Use https://github.com/RattyDAVE/docker-jupyterhub/issues to send feedback, issues, comments and general chat.
+
+#JupyterHub.
+
+Contents
+
+- Base is Ubuntu 19.04
+-
+
 ```
 docker run -d  --restart unless-stopped \
     --name jupyterhub \
