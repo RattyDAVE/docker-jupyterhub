@@ -7,7 +7,7 @@ RUN apt-get update -y && \
     mkdir -p /workdir && chmod 777 /workdir && \
     pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime jupyterlab jupyter-lsp python-language-server[all] jupyterhub bash_kernel markdown-kernel \
                                 torch torchvision tensorflow keras h2o gensim pytext-nlp loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost \
-                                matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers py4j beakerx && \
+                                matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers py4j beakerx nbgitpuller && \
 \
      beakerx install && \
      python3 -m bash_kernel.install && \
