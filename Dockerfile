@@ -58,10 +58,9 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 
 #EXAMPLES
 
-RUN mkdir /examples  && \
+RUN mkdir /examples  && cd /examples && \
     cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
-    mkdir /examples/tensorflow && \
-    cd /examples/tensorflow && \
+    mkdir /examples/tensorflow && cd /examples/tensorflow && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/classification.ipynb && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/overfit_and_underfit.ipynb && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/regression.ipynb && \
