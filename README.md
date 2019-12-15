@@ -8,10 +8,10 @@ Current state -
 - Python3 - Tested and working.
 - Bash - Tested and working.
 - C++ - Tested and working.
-- - C++11
-- - C++14
-- - C++17
-- - C++1z
+  - C++11
+  - C++14
+  - C++17
+  - C++1z
 - Clojure - Tested and working.
 - Groovy - Tested and working.
 - Java - Tested and Working.
