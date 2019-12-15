@@ -52,7 +52,7 @@ At every reboot it will check this file and ADD any new users.
 
 Replace ```%LOCAL_PATH_TO_STARTUP.SH_FILE%``` with the local filename of the startup.sh script. This is run after the user creation and before the service start.
 
-##Minimal config
+## Minimal config
 
 Use the following for a "quick start". This will create a user called ```user1``` and password ```pass```. Then point your browser to ```http://127.0.0.1:8000```.
 
