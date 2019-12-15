@@ -66,8 +66,13 @@ RUN mkdir /examples  && cd /examples && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/regression.ipynb && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/save_and_load.ipynb && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification.ipynb && \
-    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification_with_hub.ipynb
-        
+    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification_with_hub.ipynb && \
+    cd /examples && \
+    git clone https://github.com/twosigma/beakerx.git && \
+    cp -R /examples/beakerx/doc/. /examples && \
+    rm README.md && \
+    rm -R beakerx/
+
 EXPOSE 8000
 
 CMD "/scripts/sys/init.sh"
