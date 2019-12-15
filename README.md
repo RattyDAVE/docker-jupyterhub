@@ -9,6 +9,7 @@ Current state -
 - Bash - Tested and working.
 - Python3 - Tested and working.
 - Python3 with Tensorflow. - Tested and *NOT* working.
+- Diagram - Tested and Working. (Small issue with tool-tips. This is a know issue.)
 
 Use https://github.com/RattyDAVE/docker-jupyterhub/issues to send feedback, issues, comments and general chat.
 
