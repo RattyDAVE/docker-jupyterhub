@@ -5,9 +5,20 @@ RUN apt-get update -y && \
     curl https://www.npmjs.com/install.sh | sudo sh && npm install -g n && n 12.13.0 && \
     apt-get install -y python3 python3-pip python3-venv python3-all-dev python3-setuptools build-essential python3-wheel openjdk-8-jdk maven gradle git libtinfo5 wget julia && \
     mkdir -p /workdir && chmod 777 /workdir && \
-    pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime jupyterlab jupyter-lsp python-language-server[all] jupyterhub bash_kernel markdown-kernel \
-                                torch torchvision tensorflow keras h2o gensim pytext-nlp loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost \
-                                matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers py4j beakerx nbgitpuller && \
+    pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
+                                jupyterlab jupyter-lsp python-language-server[all] jupyterhub \
+                                #Bash \
+                                bash_kernel \
+                                #Markdown \
+                                markdown-kernel \
+                                #Tensorflow \
+                                torch torchvision tensorflow keras h2o gensim pytext-nlp \
+                                #Python \
+                                loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers \
+                                #Beakerx \
+                                py4j beakerx \
+                                #Add-ons \
+                                nbgitpuller && \
 \
      beakerx install && \
      python3 -m bash_kernel.install && \
