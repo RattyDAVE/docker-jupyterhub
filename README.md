@@ -8,6 +8,14 @@ Current state -
 - C++ - Tested and working.
 - Bash - Tested and working.
 - Python3 - Tested and working.
+- Clojure - Tested and working.
+- Groovy - Tested and working.
+- Java - Tested and Working.
+- Kotlin -
+- Scala - 
+- SQL - Tested and Working.
+
+
 - Python3 with Tensorflow. - Tested and *NOT* working.
 - Diagram - Tested and Working. (Small issue with tool-tips. This is a know issue.)
 
@@ -103,3 +111,24 @@ docker run -d  --restart unless-stopped \
     --env "LETSENCRYPT_EMAIL=you_mail@yourdomain.tld" \
     rattydave/jupyterhub
 ```
+
+
+# Languages
+
+C++ kernel with [Cling](https://cern.ch/cling) is an interpreter for C++.
+
+[Clojure](http://clojure.org/) is a dialect of Lisp that runs in the JVM.
+It shares with Lisp the code-as-data philosophy and a powerful macro system.
+Clojure is predominantly a functional programming language, and features a rich set of immutable, persistent data structures.
+It has strong support for reliable multithreading and concurrency.
+
+[Apache Groovy](http://groovy-lang.org/) is the language that should have been called JavaScript because it is a scripting version of Java.
+
+Java is the mother of all JVM languages, first released in 1995 after years of development by Sun Microsystems.  BeakerX uses [OpenJDK](http://openjdk.java.net/) for Java and all the kernels.
+
+[Kotlin](https://kotlinlang.org/) is a relative newcomer from [JetBrains](https://www.jetbrains.com/) and [Android](https://developer.android.com/kotlin/get-started.html).  It's intended to be an improved version of Java, including [Null Safety](https://kotlinlang.org/docs/reference/null-safety.html).
+
+[Scala](https://www.scala-lang.org/) combines the functional/type-inference paradigm and the object-oriented paradigm, and is also meant to be an improved version of Java.  Scala is the native language of [Apache Spark](Spark.ipynb).
+
+SQL (Structured Query Language) is one of the oldest and most popular languages for database access.
+BeakerX has first-class support for SQL, including syntax highlighting, autocompletion, and autotranslation to JavaScript (and more languages [coming](https://github.com/twosigma/beakerx/issues/5039)).
