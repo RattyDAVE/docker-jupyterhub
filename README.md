@@ -5,17 +5,23 @@ This is 95% tested. It is undergoing quite a few changes recently and will settl
 I have put some examples in ```/examples``` and will proceeed with some testing.
 
 Current state - 
-- C++ - Tested and working.
-- Bash - Tested and working.
 - Python3 - Tested and working.
+- Bash - Tested and working.
+- C++ - Tested and working.
+- - C++11
+- - C++14
+- - C++17
+- - C++1z
 - Clojure - Tested and working.
 - Groovy - Tested and working.
 - Java - Tested and Working.
+- Javascript (Node.js) - 
+- Julia 1.0.3
 - Kotlin -
+- Markdown 
 - Scala - 
 - SQL - Tested and Working.
-
-
+- Typscript 
 - Python3 with Tensorflow. - Tested and *NOT* working.
 - Diagram - Tested and Working. (Small issue with tool-tips. This is a know issue.)
 
