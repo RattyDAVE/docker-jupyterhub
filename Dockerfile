@@ -33,7 +33,6 @@ RUN apt-get update -y && \
     cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
     cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
     jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \
-    cp /usr/share/cling/Jupyter/kernel/cling.ipynb /workdir && \
 #NodeJS  && \
     npm install -g configurable-http-proxy && \
     npm install -g --unsafe-perm ijavascript && \
@@ -59,12 +58,16 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 
 #EXAMPLES
 
-#RUN mkdir /root/examples && \
-#	cd /root/examples && \
-#        wget -O TensorFlow-Examples.zip https://github.com/aymericdamien/TensorFlow-Examples/archive/master.zip && \
-#        unzip TensorFlow-Examples.zip && \
-#        cd TensorFlow-Examples-master && \
-#        cp -Rv notebooks/ /workdir/tensorflow/ 
+RUN mkdir /examples  && \
+    cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
+    mkdir /examples/tensorflow && \
+    cd /examples/tensorflow && \
+    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/classification.ipynb && \
+    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/overfit_and_underfit.ipynb && \
+    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/regression.ipynb && \
+    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/save_and_load.ipynb && \
+    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification.ipynb && \
+    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification_with_hub.ipynb
         
 EXPOSE 8000
 
