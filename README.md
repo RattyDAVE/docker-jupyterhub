@@ -1,3 +1,15 @@
+# Please Note:
+
+This is 95% tested. It is undergoing quite a few changes recently and will settle down over the next week or two. (from 15/Dec/2019). 
+
+I have put some examples in ```/examples``` and will proceeed with some testing.
+
+Current state - 
+- C++ - Tested and working.
+- Bash - Tested and working.
+- Python3 - Tested and working.
+- Python3 with Tensorflow. - Tested and *NOT* working.
+
 Use https://github.com/RattyDAVE/docker-jupyterhub/issues to send feedback, issues, comments and general chat.
 
 # JupyterHub.
