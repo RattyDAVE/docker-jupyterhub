@@ -5,46 +5,75 @@ RUN apt-get update -y && \
     curl https://www.npmjs.com/install.sh | sudo sh && npm install -g n && n 12.13.0 && \
     apt-get install -y python3 python3-pip python3-venv python3-all-dev python3-setuptools build-essential python3-wheel openjdk-8-jdk maven gradle git libtinfo5 wget julia && \
     mkdir -p /workdir && chmod 777 /workdir && \
+#Tensorflow && \
+    echo "--------------------------------------" && \
+    echo "----------- TENSORFLOW ---------------" && \
+    echo "--------------------------------------" && \
+    pip3 install --no-cache-dir torch torchvision tensorflow keras h2o gensim pytext-nlp && \
+#Core Python Install
+    echo "--------------------------------------" && \
+    echo "---------------CORE ------------------" && \
+    echo "--------------------------------------" && \
     pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
-                                jupyterlab jupyter-lsp python-language-server[all] jupyterhub \
-                                #Bash \
-                                bash_kernel \
-                                #Markdown \
-                                markdown-kernel \
-                                #Tensorflow \
-                                torch torchvision tensorflow keras h2o gensim pytext-nlp \
-                                #Python \
-                                loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers \
-                                #Beakerx \
-                                py4j beakerx \
-                                #Add-ons \
-                                nbgitpuller && \
-\
-     beakerx install && \
-     python3 -m bash_kernel.install && \
-     python3 -m markdown_kernel.install && \
-     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
-     jupyter labextension install beakerx-jupyterlab && \
-     jupyter labextension install @pyviz/jupyterlab_pyviz  && \
-     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
-     jupyter labextension install @jupyterlab/toc && \
-     jupyter labextension install jupyterlab-favorites && \
-     jupyter labextension install jupyterlab-recents && \
-     jupyter labextension install @krassowski/jupyterlab-lsp  && \
-     jupyter labextension install jupyterlab-drawio && \
-\
+                                jupyterlab jupyter-lsp python-language-server[all] jupyterhub && \
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
+    jupyter labextension install @pyviz/jupyterlab_pyviz  && \
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
+    jupyter labextension install @jupyterlab/toc && \
+    jupyter labextension install jupyterlab-favorites && \
+    jupyter labextension install jupyterlab-recents && \
+    jupyter labextension install @krassowski/jupyterlab-lsp  && \
+#Bash  && \
+    echo "--------------------------------------" && \
+    echo "----------- BASH ---------------------" && \
+    echo "--------------------------------------" && \
+    pip3 install --no-cache-dir bash_kernel  && \
+    python3 -m bash_kernel.install && \
+    echo "--------------------------------------" && \
+    echo "----------- MARKDOWN -----------------" && \
+    echo "--------------------------------------" && \
+#Markdown  && \
+    pip3 install --no-cache-dir markdown-kernel  && \
+    python3 -m markdown_kernel.install && \
+    echo "--------------------------------------" && \
+    echo "----------- PYTHON -------------------" && \
+    echo "--------------------------------------" && \
+#Python && \
+    pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers   && \
+    echo "--------------------------------------" && \
+    echo "----------- BEAKERX ------------------" && \
+    echo "--------------------------------------" && \
+#Beakerx   && \
+    pip3 install --no-cache-dir py4j beakerx && \
+    beakerx install && \
+    jupyter labextension install beakerx-jupyterlab && \
+    echo "--------------------------------------" && \
+    echo "----------- ADDONS -------------------" && \
+    echo "--------------------------------------" && \
+    #Add-ons   && \
+    pip3 install --no-cache-dir nbgitpuller && \
+    jupyter labextension install jupyterlab-drawio && \
 #Julia && \
+    echo "--------------------------------------" && \
+    echo "----------- JULIA --------------------" && \
+    echo "--------------------------------------" && \
     julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
     cp -r /root/.local/share/jupyter/kernels/julia-* /usr/local/share/jupyter/kernels/  && \
     chmod -R +rx /usr/share/julia/  && \
     chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/  && \
 #C++ && \
+    echo "--------------------------------------" && \
+    echo "----------- C++ ----------------------" && \
+    echo "--------------------------------------" && \
     mkdir -p ~/pre && cd ~/pre && \
     wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
     cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
     cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
-    jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \
+    jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \    
 #NodeJS  && \
+    echo "--------------------------------------" && \
+    echo "----------- NodeJS -------------------" && \
+    echo "--------------------------------------" && \
     npm install -g configurable-http-proxy && \
     npm install -g --unsafe-perm ijavascript && \
     npm install -g --unsafe-perm itypescript && \
@@ -52,6 +81,9 @@ RUN apt-get update -y && \
     ijsinstall --hide-undefined --install=global  && \
     npm cache clean --force && \
 #clean up && \
+    echo "--------------------------------------" && \
+    echo "----------- CLEANUP ------------------" && \
+    echo "--------------------------------------" && \
     apt-get -y autoclean && apt-get -y autoremove && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
     rm -rf /var/lib/apt/lists/*
