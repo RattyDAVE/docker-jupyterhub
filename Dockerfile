@@ -4,7 +4,7 @@ RUN apt-get update -yqq && \
     apt-get install -yq --no-install-recommends sudo curl git && \
     apt-get install -yq python3 python3-pip && \
     #python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
-    pip3 --no-cache-dir install --upgrade pip setuptools && \
+    pip3 --no-cache-dir install pip setuptools && \
     mkdir -p /workdir && chmod 777 /workdir && \
 #Tensorflow && \
     echo "--------------------------------------" && \
