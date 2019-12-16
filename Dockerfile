@@ -63,7 +63,7 @@ RUN apt-get update -y && \
     echo "--------------------------------------" && \
     echo "----------- JULIA --------------------" && \
     echo "--------------------------------------" && \
-    apt-get install -yq openjdk-8-jdk maven gradle 
+    apt-get install -yq openjdk-8-jdk maven gradle && \
 #Julia && \
     echo "--------------------------------------" && \
     echo "----------- JULIA --------------------" && \
