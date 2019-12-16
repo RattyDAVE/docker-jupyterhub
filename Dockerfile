@@ -17,7 +17,7 @@ RUN apt-get update -yqq && \
     curl https://www.npmjs.com/install.sh | sudo sh && npm install -g n && n 12.13.0 && \
 #Core Python Install
     echo "--------------------------------------" && \
-    echo "---------------CORE ------------------" && \
+    echo "----------- PYTHON Core --------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
                                 jupyterlab jupyter-lsp python-language-server[all] jupyterhub && \
@@ -34,33 +34,33 @@ RUN apt-get update -yqq && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir bash_kernel  && \
     python3 -m bash_kernel.install && \
+#Markdown  && \
     echo "--------------------------------------" && \
     echo "----------- MARKDOWN -----------------" && \
     echo "--------------------------------------" && \
-#Markdown  && \
     pip3 install --no-cache-dir markdown-kernel  && \
     python3 -m markdown_kernel.install && \
+#Python && \
     echo "--------------------------------------" && \
     echo "----------- PYTHON -------------------" && \
     echo "--------------------------------------" && \
-#Python && \
     pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers   && \
+#Beakerx && \
     echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
     echo "--------------------------------------" && \
-#Beakerx && \
     pip3 install --no-cache-dir py4j beakerx && \
     beakerx install && \
     jupyter labextension install beakerx-jupyterlab && \
+#Add-ons && \
     echo "--------------------------------------" && \
     echo "----------- ADDONS -------------------" && \
     echo "--------------------------------------" && \
-#Add-ons && \
     pip3 install --no-cache-dir nbgitpuller && \
     jupyter labextension install jupyterlab-drawio && \
 #Java && \
     echo "--------------------------------------" && \
-    echo "----------- JULIA --------------------" && \
+    echo "----------- JAVA ---------------------" && \
     echo "--------------------------------------" && \
     apt-get install -yq openjdk-8-jdk maven gradle && \
 #Julia && \
