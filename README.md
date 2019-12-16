@@ -18,8 +18,8 @@ Current state -
 - Javascript (Node.js) - 
 - Julia 1.0.3
 - Kotlin -
-- Markdown 
-- Scala - 
+- Markdown -  Tested and Working.
+- Scala - Tested and Working.
 - SQL - Tested and Working.
 - Typscript 
 - Python3 with Tensorflow. - Tested and *NOT* working.
