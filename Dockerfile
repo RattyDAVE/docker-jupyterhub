@@ -2,14 +2,20 @@ FROM ubuntu:19.10
 
 RUN apt-get update -yqq && \ 
     apt-get install -yq --no-install-recommends sudo curl git && \
-    apt-get install -yq python3 python3-pip python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
+    apt-get install -yq python3 python3-pip && \
+    #python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
     pip3 --no-cache-dir install --upgrade pip setuptools && \
     mkdir -p /workdir && chmod 777 /workdir && \
 #Tensorflow && \
     echo "--------------------------------------" && \
     echo "----------- TENSORFLOW ---------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir torch torchvision tensorflow keras h2o gensim pytext-nlp && \
+    pip3 install --no-cache-dir tensorflow keras && \
+#Torch && \
+    echo "--------------------------------------" && \
+    echo "----------- TORCH ---------------" && \
+    echo "--------------------------------------" && \
+    pip3 install --no-cache-dir torch torchvision && \    
 #NodeJS && \
     echo "--------------------------------------" && \
     echo "----------- NODEJS Core---------------" && \
