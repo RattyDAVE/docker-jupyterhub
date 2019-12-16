@@ -9,7 +9,7 @@ RUN apt-get update -yqq && \
     echo "--------------------------------------" && \
     echo "----------- TENSORFLOW ---------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir --upgrade torch torchvision tensorflow keras h2o gensim pytext-nlp && \
+    pip3 install --no-cache-dir torch torchvision tensorflow keras h2o gensim pytext-nlp && \
 #NodeJS && \
     echo "--------------------------------------" && \
     echo "----------- NODEJS Core---------------" && \
