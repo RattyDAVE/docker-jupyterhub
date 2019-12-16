@@ -83,10 +83,10 @@ RUN mkdir /examples  && cd /examples && \
     git clone https://github.com/twosigma/beakerx.git && \
     cp -R /examples/beakerx/doc/. /examples && \
     rm README.md && \
-    rm -R beakerx && /
+    rm -R beakerx && \
     \
-    mkdir /examples/julia && /
-    cd  /examples/julia && /
+    mkdir /examples/julia && \
+    cd  /examples/julia && \
     wget https://raw.githubusercontent.com/binder-examples/demo-julia/master/demo.ipynb
     
 EXPOSE 8000
