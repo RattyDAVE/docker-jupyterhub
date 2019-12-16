@@ -1,4 +1,4 @@
-FROM ubuntu:19.04
+FROM ubuntu:19.10
 
 RUN apt-get update -y && \ 
     apt-get install -y --no-install-recommends sudo nodejs npm curl && \
@@ -15,7 +15,7 @@ RUN apt-get update -y && \
     echo "---------------CORE ------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
-                                jupyterlab jupyter-lsp python-language-server[all] jupyterhub && \
+    upyterlab jupyter-lsp python-language-server[all] jupyterhub && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
     jupyter labextension install @pyviz/jupyterlab_pyviz  && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
