@@ -3,12 +3,13 @@ FROM ubuntu:19.10
 RUN apt-get update -yqq && \ 
     apt-get install -yq --no-install-recommends sudo curl git && \
     apt-get install -yq python3 python3-pip python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
+    pip3 --no-cache-dir install --upgrade pip setuptools && \
     mkdir -p /workdir && chmod 777 /workdir && \
 #Tensorflow && \
     echo "--------------------------------------" && \
     echo "----------- TENSORFLOW ---------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir torch torchvision tensorflow keras h2o gensim pytext-nlp && \
+    pip3 install --no-cache-dir --upgrade torch torchvision tensorflow keras h2o gensim pytext-nlp && \
 #NodeJS && \
     echo "--------------------------------------" && \
     echo "----------- NODEJS Core---------------" && \
@@ -19,7 +20,7 @@ RUN apt-get update -yqq && \
     echo "--------------------------------------" && \
     echo "----------- PYTHON Core --------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
+    pip3 install --no-cache-dir --upgrade mypy pylint yapf pytest ipython tornado jupyter nbdime \
                                 jupyterlab jupyter-lsp python-language-server[all] jupyterhub && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
     jupyter labextension install @pyviz/jupyterlab_pyviz  && \
@@ -32,31 +33,31 @@ RUN apt-get update -yqq && \
     echo "--------------------------------------" && \
     echo "----------- BASH ---------------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir bash_kernel  && \
+    pip3 install --no-cache-dir --upgrade bash_kernel  && \
     python3 -m bash_kernel.install && \
 #Markdown  && \
     echo "--------------------------------------" && \
     echo "----------- MARKDOWN -----------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir markdown-kernel  && \
+    pip3 install --no-cache-dir --upgrade markdown-kernel  && \
     python3 -m markdown_kernel.install && \
 #Python && \
     echo "--------------------------------------" && \
     echo "----------- PYTHON -------------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers   && \
+    pip3 install --no-cache-dir --upgrade loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers   && \
 #Beakerx && \
     echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir py4j beakerx && \
+    pip3 install --no-cache-dir --upgrade py4j beakerx && \
     beakerx install && \
     jupyter labextension install beakerx-jupyterlab && \
 #Add-ons && \
     echo "--------------------------------------" && \
     echo "----------- ADDONS -------------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir nbgitpuller && \
+    pip3 install --no-cache-dir --upgrade nbgitpuller && \
     jupyter labextension install jupyterlab-drawio && \
 #Java && \
     echo "--------------------------------------" && \
