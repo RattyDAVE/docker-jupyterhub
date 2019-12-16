@@ -1,21 +1,27 @@
 FROM ubuntu:19.10
 
 RUN apt-get update -y && \ 
-    apt-get install -yq --no-install-recommends sudo nodejs npm curl && \
+    apt-get install -yq --no-install-recommends sudo curl git && \
     curl https://www.npmjs.com/install.sh | sudo sh && npm install -g n && n 12.13.0 && \
-    apt-get install -yq python3 python3-pip python3-venv python3-all-dev python3-setuptools build-essential python3-wheel openjdk-8-jdk maven gradle git libtinfo5 wget julia && \
+    apt-get install -yq python3 python3-pip python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
     mkdir -p /workdir && chmod 777 /workdir && \
 #Tensorflow && \
     echo "--------------------------------------" && \
     echo "----------- TENSORFLOW ---------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir torch torchvision tensorflow keras h2o gensim pytext-nlp && \
+#NodeJS && \
+    echo "--------------------------------------" && \
+    echo "----------- NODEJS Core---------------" && \
+    echo "--------------------------------------" && \
+    apt-get install -yq --no-install-recommends nodejs npm && \
+    curl https://www.npmjs.com/install.sh | sudo sh && npm install -g n && n 12.13.0 && \
 #Core Python Install
     echo "--------------------------------------" && \
     echo "---------------CORE ------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
-    upyterlab jupyter-lsp python-language-server[all] jupyterhub && \
+                                jupyterlab jupyter-lsp python-language-server[all] jupyterhub && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
     jupyter labextension install @pyviz/jupyterlab_pyviz  && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
@@ -43,20 +49,26 @@ RUN apt-get update -y && \
     echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
     echo "--------------------------------------" && \
-#Beakerx   && \
+#Beakerx && \
     pip3 install --no-cache-dir py4j beakerx && \
     beakerx install && \
     jupyter labextension install beakerx-jupyterlab && \
     echo "--------------------------------------" && \
     echo "----------- ADDONS -------------------" && \
     echo "--------------------------------------" && \
-    #Add-ons   && \
+#Add-ons && \
     pip3 install --no-cache-dir nbgitpuller && \
     jupyter labextension install jupyterlab-drawio && \
+#Java && \
+    echo "--------------------------------------" && \
+    echo "----------- JULIA --------------------" && \
+    echo "--------------------------------------" && \
+    apt-get install -yq openjdk-8-jdk maven gradle 
 #Julia && \
     echo "--------------------------------------" && \
     echo "----------- JULIA --------------------" && \
     echo "--------------------------------------" && \
+    apt-get install -yq julia && \
     julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
     cp -r /root/.local/share/jupyter/kernels/julia-* /usr/local/share/jupyter/kernels/  && \
     chmod -R +rx /usr/share/julia/  && \
@@ -65,6 +77,7 @@ RUN apt-get update -y && \
     echo "--------------------------------------" && \
     echo "----------- C++ ----------------------" && \
     echo "--------------------------------------" && \
+    apt-get install -yq wget libtinfo5 && \
     mkdir -p ~/pre && cd ~/pre && \
     wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
     cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
