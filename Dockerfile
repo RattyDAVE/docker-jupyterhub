@@ -26,6 +26,8 @@ RUN apt-get update -yqq && \
     echo "--------------------------------------" && \
     echo "----------- PYTHON Core --------------" && \
     echo "--------------------------------------" && \
+    #Fix for Juptyer-Console && \
+    pip3 install 'prompt-toolkit==1.0.15' && \
     pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
                                 jupyterlab jupyter-lsp python-language-server[all] jupyterhub && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
