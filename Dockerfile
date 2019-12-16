@@ -1,9 +1,9 @@
 FROM ubuntu:19.10
 
 RUN apt-get update -y && \ 
-    apt-get install -y --no-install-recommends sudo nodejs npm curl && \
+    apt-get install -yq --no-install-recommends sudo nodejs npm curl && \
     curl https://www.npmjs.com/install.sh | sudo sh && npm install -g n && n 12.13.0 && \
-    apt-get install -y python3 python3-pip python3-venv python3-all-dev python3-setuptools build-essential python3-wheel openjdk-8-jdk maven gradle git libtinfo5 wget julia && \
+    apt-get install -yq python3 python3-pip python3-venv python3-all-dev python3-setuptools build-essential python3-wheel openjdk-8-jdk maven gradle git libtinfo5 wget julia && \
     mkdir -p /workdir && chmod 777 /workdir && \
 #Tensorflow && \
     echo "--------------------------------------" && \
