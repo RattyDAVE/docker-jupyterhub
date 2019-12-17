@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update -yqq && \ 
-    apt-get install -yqq --no-install-recommends sudo curl git && \
+    apt-get install -yqq --no-install-recommends sudo curl git wget && \
     apt-get install -yqq python3 python3-pip && \
     pip3 --no-cache-dir install --upgrade pip setuptools
     
@@ -89,7 +89,7 @@ RUN    mkdir -p /workdir && chmod 777 /workdir && \
     #echo "--------------------------------------" && \
     #echo "----------- C++ ----------------------" && \
     #echo "--------------------------------------" && \
-    #apt-get install -yqq wget libtinfo5 && \
+    #apt-get install -yqq libtinfo5 && \
     #mkdir -p ~/pre && cd ~/pre && \
     #wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
     #cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
