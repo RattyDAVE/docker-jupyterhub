@@ -1,31 +1,31 @@
 FROM ubuntu:18.04
 
-RUN apt-get update -yqq && \ 
+RUN mkdir -p /workdir && chmod 777 /workdir && \
+    apt-get update -yqq && \ 
     apt-get install -yqq --no-install-recommends sudo curl git wget && \
     apt-get install -yqq python3 python3-pip && \
     pip3 --no-cache-dir install --upgrade pip setuptools && \
     #python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
     #pip3 --no-cache-dir install pip setuptools && \
-    mkdir -p /workdir && chmod 777 /workdir && \
 #Tensorflow && \
     echo "--------------------------------------" && \
     echo "----------- TENSORFLOW ---------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir tensorflow keras && \
+    pip3 install --no-cache-dir tensorflow keras
 #Torch && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- TORCH --------------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir torch torchvision && \
+    pip3 install --no-cache-dir torch torchvision
 #NodeJS && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- NODEJS Core---------------" && \
     echo "--------------------------------------" && \
     apt-get install -yqq --no-install-recommends nodejs npm && \
     curl https://www.npmjs.com/install.sh | sudo sh && npm install -g n && n 12.13.0 && \
-    npm install -g configurable-http-proxy && \
+    npm install -g configurable-http-proxy
 #Core Python Install
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- PYTHON Core --------------" && \
     echo "--------------------------------------" && \
     #Fix for Juptyer-Console && \
@@ -36,38 +36,39 @@ RUN apt-get update -yqq && \
     jupyter labextension install @jupyterlab/toc && \
     jupyter labextension install jupyterlab-favorites && \
     jupyter labextension install jupyterlab-recents && \
-    jupyter labextension install @krassowski/jupyterlab-lsp  && \
+    jupyter labextension install @krassowski/jupyterlab-lsp
 #Bash  && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- BASH ---------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir bash_kernel  && \
-    python3 -m bash_kernel.install && \
+    python3 -m bash_kernel.install
 #Markdown  && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- MARKDOWN -----------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir markdown-kernel  && \
-    python3 -m markdown_kernel.install && \
+    python3 -m markdown_kernel.install
 #Python && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- PYTHON -------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers && \
-    jupyter labextension install @pyviz/jupyterlab_pyviz && \
+    jupyter labextension install @pyviz/jupyterlab_pyviz
 #Java && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----- JAVA (Need for beakerx) --------" && \
     echo "--------------------------------------" && \
-    apt-get install -yqq openjdk-8-jdk maven gradle && \
+    apt-get install -yqq openjdk-8-jdk maven gradle
 #Beakerx && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir py4j beakerx && \
     beakerx install && \
     jupyter labextension install beakerx-jupyterlab && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager && \    
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+    
 #Add-ons && \
     #echo "--------------------------------------" && \
     #echo "----------- ADDONS -------------------" && \
@@ -84,7 +85,7 @@ RUN apt-get update -yqq && \
     #chmod -R +rx /usr/share/julia/  && \
     #chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/  && \
 #C++ && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- C++ ----------------------" && \
     echo "--------------------------------------" && \
     apt-get install -yqq libtinfo5 && \
@@ -92,18 +93,18 @@ RUN apt-get update -yqq && \
     wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
     cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
     cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
-    jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \    
+    jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z
 #NodeJS  && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- NodeJS -------------------" && \
     echo "--------------------------------------" && \
     npm install -g --unsafe-perm ijavascript && \
     npm install -g --unsafe-perm itypescript && \
     its --ts-hide-undefined --install=global && \
     ijsinstall --hide-undefined --install=global  && \
-    npm cache clean --force && \
+    npm cache clean --force
 #clean up && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- CLEANUP ------------------" && \
     echo "--------------------------------------" && \
     apt-get -y autoclean && apt-get -y autoremove && \
