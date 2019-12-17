@@ -38,17 +38,17 @@ RUN apt-get update -yqq && \
     jupyter labextension install jupyterlab-recents && \
     jupyter labextension install @krassowski/jupyterlab-lsp  && \
 #Bash  && \
-    #echo "--------------------------------------" && \
-    #echo "----------- BASH ---------------------" && \
-    #echo "--------------------------------------" && \
-    #pip3 install --no-cache-dir bash_kernel  && \
-    #python3 -m bash_kernel.install && \
+    echo "--------------------------------------" && \
+    echo "----------- BASH ---------------------" && \
+    echo "--------------------------------------" && \
+    pip3 install --no-cache-dir bash_kernel  && \
+    python3 -m bash_kernel.install && \
 #Markdown  && \
-    #echo "--------------------------------------" && \
-    #echo "----------- MARKDOWN -----------------" && \
-    #echo "--------------------------------------" && \
-    #pip3 install --no-cache-dir markdown-kernel  && \
-    #python3 -m markdown_kernel.install && \
+    echo "--------------------------------------" && \
+    echo "----------- MARKDOWN -----------------" && \
+    echo "--------------------------------------" && \
+    pip3 install --no-cache-dir markdown-kernel  && \
+    python3 -m markdown_kernel.install && \
 #Python && \
     echo "--------------------------------------" && \
     echo "----------- PYTHON -------------------" && \
@@ -94,13 +94,13 @@ RUN apt-get update -yqq && \
     cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
     jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \    
 #NodeJS  && \
-    #echo "--------------------------------------" && \
-    #echo "----------- NodeJS -------------------" && \
-    #echo "--------------------------------------" && \
-    #npm install -g --unsafe-perm ijavascript && \
-    #npm install -g --unsafe-perm itypescript && \
-    #its --ts-hide-undefined --install=global && \
-    #ijsinstall --hide-undefined --install=global  && \
+    echo "--------------------------------------" && \
+    echo "----------- NodeJS -------------------" && \
+    echo "--------------------------------------" && \
+    npm install -g --unsafe-perm ijavascript && \
+    npm install -g --unsafe-perm itypescript && \
+    its --ts-hide-undefined --install=global && \
+    ijsinstall --hide-undefined --install=global  && \
     npm cache clean --force && \
 #clean up && \
     echo "--------------------------------------" && \
