@@ -57,7 +57,7 @@ RUN echo "--------------------------------------" && \
     #pip3 install --no-cache-dir markdown-kernel  && \
     #python3 -m markdown_kernel.install && \
 #Python && \
-    echo "--------------------------------------" && \
+RUN    echo "--------------------------------------" && \
     echo "----------- PYTHON -------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers && \
