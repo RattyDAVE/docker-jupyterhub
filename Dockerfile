@@ -61,6 +61,11 @@ RUN    echo "--------------------------------------" && \
     echo "----------- PYTHON -------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers && \
+#Java && \
+    echo "--------------------------------------" && \
+    echo "----- JAVA (Need for beakerx) --------" && \
+    echo "--------------------------------------" && \
+    apt-get install -yqq openjdk-8-jdk maven gradle && \
 #Beakerx && \
     echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
@@ -74,11 +79,6 @@ RUN    echo "--------------------------------------" && \
     #echo "--------------------------------------" && \
     #pip3 install --no-cache-dir nbgitpuller && \
     #jupyter labextension install jupyterlab-drawio && \
-#Java && \
-    #echo "--------------------------------------" && \
-    #echo "----------- JAVA ---------------------" && \
-    #echo "--------------------------------------" && \
-    #apt-get install -yqq openjdk-8-jdk maven gradle && \
 #Julia && \
     #echo "--------------------------------------" && \
     #echo "----------- JULIA --------------------" && \
@@ -89,15 +89,15 @@ RUN    echo "--------------------------------------" && \
     #chmod -R +rx /usr/share/julia/  && \
     #chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/  && \
 #C++ && \
-    #echo "--------------------------------------" && \
-    #echo "----------- C++ ----------------------" && \
-    #echo "--------------------------------------" && \
-    #apt-get install -yqq libtinfo5 && \
-    #mkdir -p ~/pre && cd ~/pre && \
-    #wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
-    #cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
-    #cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
-    #jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \    
+    echo "--------------------------------------" && \
+    echo "----------- C++ ----------------------" && \
+    echo "--------------------------------------" && \
+    apt-get install -yqq libtinfo5 && \
+    mkdir -p ~/pre && cd ~/pre && \
+    wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
+    cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
+    cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
+    jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \    
 #NodeJS  && \
     #echo "--------------------------------------" && \
     #echo "----------- NodeJS -------------------" && \
@@ -120,7 +120,6 @@ ADD settings/jupyterhub_config.py /etc/jupyterhub/
 COPY scripts /scripts
 
 RUN chmod -R 755 /scripts 
-#&& /scripts/sys/create_user_nogroup.sh dave 2000
 
 ENV M2_HOME=/usr/share/maven
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
@@ -131,7 +130,7 @@ RUN echo "--------------------------------------" && \
     echo "----------- EXAMPLES -----------------" && \
     echo "--------------------------------------" && \
     mkdir /examples  && cd /examples && \
-    #cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
+    cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
     mkdir /examples/tensorflow && cd /examples/tensorflow && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/classification.ipynb && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/overfit_and_underfit.ipynb && \
