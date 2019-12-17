@@ -37,8 +37,6 @@ RUN echo "--------------------------------------" && \
     pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
                                 jupyterlab jupyter-lsp python-language-server[all] jupyterhub && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
-    jupyter labextension install @pyviz/jupyterlab_pyviz  && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
     jupyter labextension install @jupyterlab/toc && \
     jupyter labextension install jupyterlab-favorites && \
     jupyter labextension install jupyterlab-recents && \
@@ -61,6 +59,7 @@ RUN    echo "--------------------------------------" && \
     echo "----------- PYTHON -------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers && \
+    jupyter labextension install @pyviz/jupyterlab_pyviz && \
 #Java && \
     echo "--------------------------------------" && \
     echo "----- JAVA (Need for beakerx) --------" && \
