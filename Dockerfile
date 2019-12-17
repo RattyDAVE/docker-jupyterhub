@@ -15,10 +15,10 @@ RUN    mkdir -p /workdir && chmod 777 /workdir && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir tensorflow keras && \
 #Torch && \
-    echo "--------------------------------------" && \
-    echo "----------- TORCH ---------------" && \
-    echo "--------------------------------------" && \
-    pip3 install --no-cache-dir torch torchvision && \    
+    #echo "--------------------------------------" && \
+    #echo "----------- TORCH ---------------" && \
+    #echo "--------------------------------------" && \
+    #pip3 install --no-cache-dir torch torchvision && \    
 #NodeJS && \
     echo "--------------------------------------" && \
     echo "----------- NODEJS Core---------------" && \
@@ -41,69 +41,69 @@ RUN    mkdir -p /workdir && chmod 777 /workdir && \
     jupyter labextension install jupyterlab-recents && \
     jupyter labextension install @krassowski/jupyterlab-lsp  && \
 #Bash  && \
-    echo "--------------------------------------" && \
-    echo "----------- BASH ---------------------" && \
-    echo "--------------------------------------" && \
-    pip3 install --no-cache-dir bash_kernel  && \
-    python3 -m bash_kernel.install && \
+    #echo "--------------------------------------" && \
+    #echo "----------- BASH ---------------------" && \
+    #echo "--------------------------------------" && \
+    #pip3 install --no-cache-dir bash_kernel  && \
+    #python3 -m bash_kernel.install && \
 #Markdown  && \
-    echo "--------------------------------------" && \
-    echo "----------- MARKDOWN -----------------" && \
-    echo "--------------------------------------" && \
-    pip3 install --no-cache-dir markdown-kernel  && \
-    python3 -m markdown_kernel.install && \
+    #echo "--------------------------------------" && \
+    #echo "----------- MARKDOWN -----------------" && \
+    #echo "--------------------------------------" && \
+    #pip3 install --no-cache-dir markdown-kernel  && \
+    #python3 -m markdown_kernel.install && \
 #Python && \
     echo "--------------------------------------" && \
     echo "----------- PYTHON -------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers   && \
 #Beakerx && \
-    echo "--------------------------------------" && \
-    echo "----------- BEAKERX ------------------" && \
-    echo "--------------------------------------" && \
-    pip3 install --no-cache-dir py4j beakerx && \
-    beakerx install && \
-    jupyter labextension install beakerx-jupyterlab && \
+    #echo "--------------------------------------" && \
+    #echo "----------- BEAKERX ------------------" && \
+    #echo "--------------------------------------" && \
+    #pip3 install --no-cache-dir py4j beakerx && \
+    #beakerx install && \
+    #jupyter labextension install beakerx-jupyterlab && \
 #Add-ons && \
-    echo "--------------------------------------" && \
-    echo "----------- ADDONS -------------------" && \
-    echo "--------------------------------------" && \
-    pip3 install --no-cache-dir nbgitpuller && \
-    jupyter labextension install jupyterlab-drawio && \
+    #echo "--------------------------------------" && \
+    #echo "----------- ADDONS -------------------" && \
+    #echo "--------------------------------------" && \
+    #pip3 install --no-cache-dir nbgitpuller && \
+    #jupyter labextension install jupyterlab-drawio && \
 #Java && \
-    echo "--------------------------------------" && \
-    echo "----------- JAVA ---------------------" && \
-    echo "--------------------------------------" && \
-    apt-get install -yqq openjdk-8-jdk maven gradle && \
+    #echo "--------------------------------------" && \
+    #echo "----------- JAVA ---------------------" && \
+    #echo "--------------------------------------" && \
+    #apt-get install -yqq openjdk-8-jdk maven gradle && \
 #Julia && \
-    echo "--------------------------------------" && \
-    echo "----------- JULIA --------------------" && \
-    echo "--------------------------------------" && \
-    apt-get install -yq julia && \
-    julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
-    cp -r /root/.local/share/jupyter/kernels/julia-* /usr/local/share/jupyter/kernels/  && \
-    chmod -R +rx /usr/share/julia/  && \
-    chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/  && \
+    #echo "--------------------------------------" && \
+    #echo "----------- JULIA --------------------" && \
+    #echo "--------------------------------------" && \
+    #apt-get install -yq julia && \
+    #julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
+    #cp -r /root/.local/share/jupyter/kernels/julia-* /usr/local/share/jupyter/kernels/  && \
+    #chmod -R +rx /usr/share/julia/  && \
+    #chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/  && \
 #C++ && \
-    echo "--------------------------------------" && \
-    echo "----------- C++ ----------------------" && \
-    echo "--------------------------------------" && \
-    apt-get install -yqq wget libtinfo5 && \
-    mkdir -p ~/pre && cd ~/pre && \
-    wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
-    cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
-    cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
-    jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \    
+    #echo "--------------------------------------" && \
+    #echo "----------- C++ ----------------------" && \
+    #echo "--------------------------------------" && \
+    #apt-get install -yqq wget libtinfo5 && \
+    #mkdir -p ~/pre && cd ~/pre && \
+    #wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
+    #cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
+    #cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
+    #jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \    
 #NodeJS  && \
-    echo "--------------------------------------" && \
-    echo "----------- NodeJS -------------------" && \
-    echo "--------------------------------------" && \
-    npm install -g configurable-http-proxy && \
-    npm install -g --unsafe-perm ijavascript && \
-    npm install -g --unsafe-perm itypescript && \
-    its --ts-hide-undefined --install=global && \
-    ijsinstall --hide-undefined --install=global  && \
-    npm cache clean --force && \
+    #echo "--------------------------------------" && \
+    #echo "----------- NodeJS -------------------" && \
+    #echo "--------------------------------------" && \
+    #npm install -g configurable-http-proxy && \
+    #npm install -g --unsafe-perm ijavascript && \
+    #npm install -g --unsafe-perm itypescript && \
+    #its --ts-hide-undefined --install=global && \
+    #ijsinstall --hide-undefined --install=global  && \
+    #npm cache clean --force && \
 #clean up && \
     echo "--------------------------------------" && \
     echo "----------- CLEANUP ------------------" && \
