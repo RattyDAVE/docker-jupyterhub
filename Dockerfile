@@ -3,10 +3,12 @@ FROM ubuntu:18.04
 RUN apt-get update -yqq && \ 
     apt-get install -yqq --no-install-recommends sudo curl git && \
     apt-get install -yqq python3 python3-pip && \
-    pip3 --no-cache-dir install --upgrade pip setuptools && \
+    pip3 --no-cache-dir install --upgrade pip setuptools
+    
     #python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
     #pip3 --no-cache-dir install pip setuptools && \
-    mkdir -p /workdir && chmod 777 /workdir && \
+
+RUN    mkdir -p /workdir && chmod 777 /workdir && \
 #Tensorflow && \
     echo "--------------------------------------" && \
     echo "----------- TENSORFLOW ---------------" && \
