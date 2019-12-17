@@ -31,7 +31,7 @@ RUN    mkdir -p /workdir && chmod 777 /workdir && \
     echo "--------------------------------------" && \
     #Fix for Juptyer-Console && \
     pip3 install 'prompt-toolkit==2.0.10' && \
-    pip3 install 'six=1.12' && \
+    pip3 install 'six==1.12' && \
     pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
                                 jupyterlab jupyter-lsp python-language-server[all] jupyterhub && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
