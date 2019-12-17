@@ -36,7 +36,6 @@ RUN echo "--------------------------------------" && \
     pip3 install 'six==1.12' && \
     pip3 install --no-cache-dir mypy pylint yapf pytest ipython tornado jupyter nbdime \
                                 jupyterlab jupyter-lsp python-language-server[all] jupyterhub && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
     jupyter labextension install @jupyterlab/toc && \
     jupyter labextension install jupyterlab-favorites && \
     jupyter labextension install jupyterlab-recents && \
@@ -72,6 +71,7 @@ RUN    echo "--------------------------------------" && \
     pip3 install --no-cache-dir py4j beakerx && \
     beakerx install && \
     jupyter labextension install beakerx-jupyterlab && \
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager && \    
 #Add-ons && \
     #echo "--------------------------------------" && \
     #echo "----------- ADDONS -------------------" && \
