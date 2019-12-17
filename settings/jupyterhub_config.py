@@ -96,7 +96,7 @@ c.JupyterHub.authenticator_class = 'jupyterhub.auth.PAMAuthenticator'
 #  shutdown the Hub, leaving everything else running.
 #  
 #  The Hub should be able to resume from database state.
-#c.JupyterHub.cleanup_servers = True
+c.JupyterHub.cleanup_servers = True
 
 ## Maximum number of concurrent users that can be spawning at a time.
 #  
