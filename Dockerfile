@@ -25,6 +25,7 @@ RUN    mkdir -p /workdir && chmod 777 /workdir && \
     echo "--------------------------------------" && \
     apt-get install -yqq --no-install-recommends nodejs npm && \
     curl https://www.npmjs.com/install.sh | sudo sh && npm install -g n && n 12.13.0 && \
+    npm install -g configurable-http-proxy && \
 #Core Python Install
     echo "--------------------------------------" && \
     echo "----------- PYTHON Core --------------" && \
@@ -99,12 +100,11 @@ RUN    mkdir -p /workdir && chmod 777 /workdir && \
     #echo "--------------------------------------" && \
     #echo "----------- NodeJS -------------------" && \
     #echo "--------------------------------------" && \
-    #npm install -g configurable-http-proxy && \
     #npm install -g --unsafe-perm ijavascript && \
     #npm install -g --unsafe-perm itypescript && \
     #its --ts-hide-undefined --install=global && \
     #ijsinstall --hide-undefined --install=global  && \
-    #npm cache clean --force && \
+    npm cache clean --force && \
 #clean up && \
     echo "--------------------------------------" && \
     echo "----------- CLEANUP ------------------" && \
