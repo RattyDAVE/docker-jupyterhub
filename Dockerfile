@@ -36,6 +36,7 @@ RUN echo "--------------------------------------" && \
     jupyter labextension install @jupyterlab/toc && \
     jupyter labextension install jupyterlab-favorites && \
     jupyter labextension install jupyterlab-recents && \
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager && \
     jupyter labextension install @krassowski/jupyterlab-lsp
 #Bash  && \
 RUN echo "--------------------------------------" && \
@@ -66,9 +67,7 @@ RUN echo "--------------------------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir py4j beakerx && \
     beakerx install && \
-    jupyter labextension install beakerx-jupyterlab && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    
+    jupyter labextension install beakerx-jupyterlab  
 #Add-ons && \
     #echo "--------------------------------------" && \
     #echo "----------- ADDONS -------------------" && \
