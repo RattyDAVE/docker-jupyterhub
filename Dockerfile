@@ -127,7 +127,8 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 #EXAMPLES
 RUN echo "--------------------------------------" && \
     echo "----------- EXAMPLES -----------------" && \
-    echo "--------------------------------------" && \mkdir /examples  && cd /examples && \
+    echo "--------------------------------------" && \
+    mkdir /examples  && cd /examples && \
     #cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
     mkdir /examples/tensorflow && cd /examples/tensorflow && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/classification.ipynb && \
