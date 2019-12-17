@@ -128,7 +128,7 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 RUN echo "--------------------------------------" && \
     echo "----------- EXAMPLES -----------------" && \
     echo "--------------------------------------" && \mkdir /examples  && cd /examples && \
-    cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
+    #cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
     mkdir /examples/tensorflow && cd /examples/tensorflow && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/classification.ipynb && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/overfit_and_underfit.ipynb && \
@@ -136,14 +136,15 @@ RUN echo "--------------------------------------" && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/save_and_load.ipynb && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification.ipynb && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification_with_hub.ipynb && \
-    cd /examples && \
-    git clone https://github.com/twosigma/beakerx.git && \
-    cp -R /examples/beakerx/doc/. /examples && \
-    rm README.md && \
-    rm -R beakerx && \
-    mkdir /examples/julia && \
-    cd  /examples/julia && \
-    wget https://raw.githubusercontent.com/binder-examples/demo-julia/master/demo.ipynb
+    #cd /examples && \
+    #git clone https://github.com/twosigma/beakerx.git && \
+    #cp -R /examples/beakerx/doc/. /examples && \
+    #rm README.md && \
+    #rm -R beakerx && \
+    #mkdir /examples/julia && \
+    #cd  /examples/julia && \
+    #wget https://raw.githubusercontent.com/binder-examples/demo-julia/master/demo.ipynb && \
+    echo "END"
     
 EXPOSE 8000
 
