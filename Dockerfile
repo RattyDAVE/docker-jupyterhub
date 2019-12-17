@@ -3,12 +3,10 @@ FROM ubuntu:18.04
 RUN apt-get update -yqq && \ 
     apt-get install -yqq --no-install-recommends sudo curl git wget && \
     apt-get install -yqq python3 python3-pip && \
-    pip3 --no-cache-dir install --upgrade pip setuptools
-    
+    pip3 --no-cache-dir install --upgrade pip setuptools && \
     #python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
     #pip3 --no-cache-dir install pip setuptools && \
-
-RUN mkdir -p /workdir && chmod 777 /workdir && \
+    mkdir -p /workdir && chmod 777 /workdir && \
 #Tensorflow && \
     echo "--------------------------------------" && \
     echo "----------- TENSORFLOW ---------------" && \
@@ -16,12 +14,11 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     pip3 install --no-cache-dir tensorflow keras && \
 #Torch && \
     echo "--------------------------------------" && \
-    echo "----------- TORCH ---------------" && \
+    echo "----------- TORCH --------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir torch torchvision && \
-    echo ""
 #NodeJS && \
-RUN echo "--------------------------------------" && \
+    echo "--------------------------------------" && \
     echo "----------- NODEJS Core---------------" && \
     echo "--------------------------------------" && \
     apt-get install -yqq --no-install-recommends nodejs npm && \
@@ -40,7 +37,6 @@ RUN echo "--------------------------------------" && \
     jupyter labextension install jupyterlab-favorites && \
     jupyter labextension install jupyterlab-recents && \
     jupyter labextension install @krassowski/jupyterlab-lsp  && \
-    echo ""
 #Bash  && \
     #echo "--------------------------------------" && \
     #echo "----------- BASH ---------------------" && \
@@ -54,7 +50,7 @@ RUN echo "--------------------------------------" && \
     #pip3 install --no-cache-dir markdown-kernel  && \
     #python3 -m markdown_kernel.install && \
 #Python && \
-RUN    echo "--------------------------------------" && \
+    echo "--------------------------------------" && \
     echo "----------- PYTHON -------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers && \
