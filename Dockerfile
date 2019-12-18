@@ -108,7 +108,8 @@ RUN echo "--------------------------------------" && \
     npm install -g --unsafe-perm itypescript && \
     its --ts-hide-undefined --install=global && \
     ijsinstall --hide-undefined --install=global  && \
-    npm cache clean --force clean up
+    npm cache clean --force
+#clean up
 RUN echo "--------------------------------------" && \
     echo "----------- CLEANUP ------------------" && \
     echo "--------------------------------------" && \
