@@ -36,7 +36,12 @@ Contents
 
 - Base is Ubuntu 19.10
 - Cling (provides interactive C++)
-- OpenJava 14
+- OpenJDK 14
+- BeakerX 1.4.1 (provides Groovy, Scala, Clojure, Kotlin, Java, and SQL)
+- Julia 1.0.4
+- Python3
+  - Tensorflow
+  - Torch
 
 ```
 docker run -d  --restart unless-stopped \
