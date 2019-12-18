@@ -1,6 +1,8 @@
 # Please Note:
 
-This is 95% tested. It is undergoing quite a few changes recently and will settle down over the next week or two. (from 15/Dec/2019). 
+This is 95% tested. It is undergoing quite a few changes recently and will settle down over the next week or two. (from 15/Dec/2019).
+
+It is also a bit BIG! The Layers are not quite optimised yet. This makes debugging much quicker and easier. Once I am happy there is no major issues I will then link all the containers. (And it will hopfully be much smaller!)
 
 I have put some examples in ```/examples``` and will proceeed with some testing.
 
@@ -33,7 +35,8 @@ Use https://github.com/RattyDAVE/docker-jupyterhub/issues to send feedback, issu
 Contents
 
 - Base is Ubuntu 19.10
--
+- Cling (provides interactive C++)
+- OpenJava 14
 
 ```
 docker run -d  --restart unless-stopped \
