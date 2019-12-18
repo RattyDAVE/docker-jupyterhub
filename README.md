@@ -15,15 +15,15 @@ Current state -
 - Clojure - Tested and working.
 - Groovy - Tested and working.
 - Java - Tested and Working.
-- Javascript (Node.js) - 
-- Julia 1.0.3
-- Kotlin -
+- Javascript (Node.js) - Tested and Working.
+- Julia 1.0.3 - NOT TESTED
+- Kotlin - Tested and NOT working.
 - Markdown -  Tested and Working.
 - Scala - Tested and Working.
 - SQL - Tested and Working.
 - Typscript 
-- Python3 with Tensorflow. - Tested and *NOT* working.
-- Python3 with Torch. 
+- Python3 with Tensorflow. - Tested and Working.
+- Python3 with Torch. - NOT TESTED
 - Diagram - Tested and Working. (Small issue with tool-tips. This is a know issue.)
 
 Use https://github.com/RattyDAVE/docker-jupyterhub/issues to send feedback, issues, comments and general chat.
@@ -32,7 +32,7 @@ Use https://github.com/RattyDAVE/docker-jupyterhub/issues to send feedback, issu
 
 Contents
 
-- Base is Ubuntu 19.04
+- Base is Ubuntu 19.10
 -
 
 ```
