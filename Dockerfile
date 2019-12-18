@@ -65,9 +65,16 @@ RUN echo "--------------------------------------" && \
 RUN echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
     echo "--------------------------------------" && \
-    pip3 install --no-cache-dir py4j beakerx && \
-    beakerx install && \
-    jupyter labextension install beakerx-jupyterlab  
+    ##pip3 install --no-cache-dir py4j beakerx && \
+    ##beakerx install && \
+    ##jupyter labextension install beakerx-jupyterlab && \
+    #cd /root && \
+    #git clone https://github.com/twosigma/beakerx.git && \
+    #cd beakerx/beakerx && \ 
+    #pip install -r requirements.txt --verbose && \
+    #cd .. && \
+    #beakerx install && \
+    #beakerx_databrowser install && \
 #Add-ons && \
     #echo "--------------------------------------" && \
     #echo "----------- ADDONS -------------------" && \
@@ -84,24 +91,24 @@ RUN echo "--------------------------------------" && \
     #chmod -R +rx /usr/share/julia/  && \
     #chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/  && \
 #C++ && \
-RUN echo "--------------------------------------" && \
-    echo "----------- C++ ----------------------" && \
-    echo "--------------------------------------" && \
-    apt-get install -yqq libtinfo5 && \
-    mkdir -p ~/pre && cd ~/pre && \
-    wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
-    cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
-    cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
-    jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z
+#RUN echo "--------------------------------------" && \
+#    echo "----------- C++ ----------------------" && \
+#    echo "--------------------------------------" && \
+#    apt-get install -yqq libtinfo5 && \
+#    mkdir -p ~/pre && cd ~/pre && \
+#    wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
+#    cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
+#    cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
+#    jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z
 #NodeJS  && \
-RUN echo "--------------------------------------" && \
-    echo "----------- NodeJS -------------------" && \
-    echo "--------------------------------------" && \
-    npm install -g --unsafe-perm ijavascript && \
-    npm install -g --unsafe-perm itypescript && \
-    its --ts-hide-undefined --install=global && \
-    ijsinstall --hide-undefined --install=global  && \
-    npm cache clean --force
+#RUN echo "--------------------------------------" && \
+#    echo "----------- NodeJS -------------------" && \
+#    echo "--------------------------------------" && \
+#    npm install -g --unsafe-perm ijavascript && \
+#    npm install -g --unsafe-perm itypescript && \
+#    its --ts-hide-undefined --install=global && \
+#    ijsinstall --hide-undefined --install=global  && \
+#    npm cache clean --force
 #clean up && \
 RUN echo "--------------------------------------" && \
     echo "----------- CLEANUP ------------------" && \
@@ -137,7 +144,7 @@ RUN echo "--------------------------------------" && \
     git clone https://github.com/twosigma/beakerx.git && \
     cp -R /examples/beakerx/doc/. /examples && \
     rm README.md && \
-    rm -R beakerx && \
+#    rm -R beakerx && \
     mkdir /examples/julia && \
     cd  /examples/julia && \
     wget https://raw.githubusercontent.com/binder-examples/demo-julia/master/demo.ipynb && \
