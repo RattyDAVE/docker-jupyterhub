@@ -60,10 +60,10 @@ RUN echo "--------------------------------------" && \
 RUN echo "--------------------------------------" && \
     echo "----- JAVA (Need for beakerx) --------" && \
     echo "--------------------------------------" && \
-    apt-get install -yqq openjdk-8-jdk maven gradle
+    apt-get install -yqq openjdk-14-jdk maven gradle
 #Beakerx && \
 ENV M2_HOME=/usr/share/maven
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
 RUN echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
@@ -83,16 +83,20 @@ RUN echo "--------------------------------------" && \
     echo "----------- ADDONS -------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir nbgitpuller && \
-    jupyter labextension install jupyterlab-drawio
+    jupyter labextension install jupyterlab-drawio && \
+    jupyter labextension install @wallneradam/run_all_buttons && \
+    jupyter labextension install custom-git && \
+    jupyter labextension install jupyterlab-tutorial && \
+    jupyter labextension install jupyterlab-spreadsheet && \
 #Julia && \
-#RUN echo "--------------------------------------" && \
-#    echo "----------- JULIA --------------------" && \
-#    echo "--------------------------------------" && \
-#    apt-get install -yq julia && \
-#    julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
-#    cp -r /root/.local/share/jupyter/kernels/julia-* /usr/local/share/jupyter/kernels/  && \
-#    chmod -R +rx /usr/share/julia/  && \
-#    chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/  && \
+RUN echo "--------------------------------------" && \
+    echo "----------- JULIA --------------------" && \
+    echo "--------------------------------------" && \
+    apt-get install -yq julia && \
+    julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
+    cp -r /root/.local/share/jupyter/kernels/julia-* /usr/local/share/jupyter/kernels/  && \
+    chmod -R +rx /usr/share/julia/  && \
+    chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/
 #C++ && \
 RUN echo "--------------------------------------" && \
     echo "----------- C++ ----------------------" && \
