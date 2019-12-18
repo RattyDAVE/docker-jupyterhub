@@ -62,9 +62,9 @@ RUN echo "--------------------------------------" && \
     echo "--------------------------------------" && \
     apt-get install -yqq openjdk-8-jdk maven gradle
 #Beakerx && \
-RUN echo "--------------------------------------" && \
-    echo "----------- BEAKERX ------------------" && \
-    echo "--------------------------------------" && \
+#RUN echo "--------------------------------------" && \
+#    echo "----------- BEAKERX ------------------" && \
+ #   echo "--------------------------------------" && \
     ##pip3 install --no-cache-dir py4j beakerx && \
     ##beakerx install && \
     ##jupyter labextension install beakerx-jupyterlab && \
