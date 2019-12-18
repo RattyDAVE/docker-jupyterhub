@@ -70,7 +70,7 @@ RUN echo "--------------------------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir py4j beakerx && \
     beakerx install && \
-    jupyter labextension install beakerx-jupyterlab && \
+    jupyter labextension install beakerx-jupyterlab
     #cd /root && \
     #git clone https://github.com/twosigma/beakerx.git && \
     #cd beakerx/beakerx && \ 
@@ -79,13 +79,12 @@ RUN echo "--------------------------------------" && \
     #beakerx install && \
     #beakerx_databrowser install && \
 #Add-ons && \
-    echo "--------------------------------------" && \
+RUN echo "--------------------------------------" && \
     echo "----------- ADDONS -------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir nbgitpuller && \
     jupyter labextension install jupyterlab-drawio && \
     jupyter labextension install @wallneradam/run_all_buttons && \
-    jupyter labextension install jupyterlab-tutorial && \
     jupyter labextension install jupyterlab-spreadsheet
 #Julia && \
 RUN echo "--------------------------------------" && \
