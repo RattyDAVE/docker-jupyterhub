@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:19.10
 
 RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get update -yqq && \ 
