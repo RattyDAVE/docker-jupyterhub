@@ -54,4 +54,4 @@ mkdir -p ~/.jupyter
 mkdir -p ~/.local/share/jupyter/runtime
 
 cd /root
-jupyterhub -f /etc/jupyterhub/jupyterhub_config.py
+jupyterhub -f /etc/jupyterhub/jupyterhub_config.py --debug
