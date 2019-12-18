@@ -86,7 +86,7 @@ RUN echo "--------------------------------------" && \
     jupyter labextension install jupyterlab-drawio && \
     jupyter labextension install @wallneradam/run_all_buttons && \
     jupyter labextension install jupyterlab-tutorial && \
-    jupyter labextension install jupyterlab-spreadsheet && \
+    jupyter labextension install jupyterlab-spreadsheet
 #Julia && \
 RUN echo "--------------------------------------" && \
     echo "----------- JULIA --------------------" && \
