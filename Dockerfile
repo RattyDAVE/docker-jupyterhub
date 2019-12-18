@@ -62,6 +62,9 @@ RUN echo "--------------------------------------" && \
     echo "--------------------------------------" && \
     apt-get install -yqq openjdk-8-jdk maven gradle
 #Beakerx && \
+ENV M2_HOME=/usr/share/maven
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin
 RUN echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
     echo "--------------------------------------" && \
@@ -122,10 +125,6 @@ ADD settings/jupyterhub_config.py /etc/jupyterhub/
 COPY scripts /scripts
 
 RUN chmod -R 755 /scripts 
-
-ENV M2_HOME=/usr/share/maven
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH=$PATH:$JAVA_HOME/bin
 
 #EXAMPLES
 RUN echo "--------------------------------------" && \
