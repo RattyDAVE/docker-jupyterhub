@@ -80,16 +80,16 @@ RUN echo "--------------------------------------" && \
     echo "----------- ADDONS -------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir nbgitpuller && \
-    jupyter labextension install jupyterlab-drawio && \
+    jupyter labextension install jupyterlab-drawio
 #Julia && \
-    echo "--------------------------------------" && \
-    echo "----------- JULIA --------------------" && \
-    echo "--------------------------------------" && \
-    apt-get install -yq julia && \
-    julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
-    cp -r /root/.local/share/jupyter/kernels/julia-* /usr/local/share/jupyter/kernels/  && \
-    chmod -R +rx /usr/share/julia/  && \
-    chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/  && \
+#RUN echo "--------------------------------------" && \
+#    echo "----------- JULIA --------------------" && \
+#    echo "--------------------------------------" && \
+#    apt-get install -yq julia && \
+#    julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
+#    cp -r /root/.local/share/jupyter/kernels/julia-* /usr/local/share/jupyter/kernels/  && \
+#    chmod -R +rx /usr/share/julia/  && \
+#    chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/  && \
 #C++ && \
 RUN echo "--------------------------------------" && \
     echo "----------- C++ ----------------------" && \
