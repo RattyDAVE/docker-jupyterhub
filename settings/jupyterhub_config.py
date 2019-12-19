@@ -503,7 +503,8 @@ c.Spawner.env_keep = [
 #  
 #  Note that this does *not* prevent users from accessing files outside of this
 #  path! They can do so with many other means.
-c.Spawner.notebook_dir = '/workdir'
+#c.Spawner.notebook_dir = '/workdir'
+c.Spawner.notebook_dir = '~'
 
 ## An HTML form for options a user can specify on launching their server.
 #  
