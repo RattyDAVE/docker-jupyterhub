@@ -20,7 +20,6 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
-
 RUN apt-get update -yqq && \ 
 #Tensorflow && \
     echo "--------------------------------------" && \
@@ -143,37 +142,37 @@ RUN apt-get update -yqq && \
 
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
+ADD StartHere.ipynb /etc/skel
 COPY scripts /scripts
 
 RUN chmod -R 755 /scripts 
 
 #EXAMPLES
-COPY examples /examples
-RUN echo "--------------------------------------" && \
-    echo "----------- EXAMPLES -----------------" && \
-    echo "--------------------------------------" && \
-    cd /examples && \
-    cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
-    mkdir /examples/tensorflow && cd /examples/tensorflow && \
-    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/classification.ipynb && \
-    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/overfit_and_underfit.ipynb && \
-    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/regression.ipynb && \
-    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/save_and_load.ipynb && \
-    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification.ipynb && \
-    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification_with_hub.ipynb && \
-    cd /examples && \
-    git clone https://github.com/twosigma/beakerx.git && \
-    cp -R /examples/beakerx/doc/. /examples && \
-    rm README.md && \
-    rm -R beakerx && \
-    mkdir /examples/julia && \
-    cd  /examples/julia && \
-    wget https://raw.githubusercontent.com/binder-examples/demo-julia/master/demo.ipynb && \
-    cd /workdir && \
-    cp -R /examples/ . && \
-    chmod -R 777 . && \
-    echo "END"
-
+#COPY examples /examples
+#RUN echo "--------------------------------------" && \
+#    echo "----------- EXAMPLES -----------------" && \
+#    echo "--------------------------------------" && \
+#    cd /examples && \
+#    cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
+#    mkdir /examples/tensorflow && cd /examples/tensorflow && \
+#    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/classification.ipynb && \
+#    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/overfit_and_underfit.ipynb && \
+#    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/regression.ipynb && \
+#    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/save_and_load.ipynb && \
+#    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification.ipynb && \
+#    wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/text_classification_with_hub.ipynb && \
+#    cd /examples && \
+#    git clone https://github.com/twosigma/beakerx.git && \
+#    cp -R /examples/beakerx/doc/. /examples && \
+#    rm README.md && \
+#    rm -R beakerx && \
+#    mkdir /examples/julia && \
+#    cd  /examples/julia && \
+#    wget https://raw.githubusercontent.com/binder-examples/demo-julia/master/demo.ipynb && \
+#    cd /workdir && \
+#    cp -R /examples/ . && \
+#    chmod -R 777 . && \
+#    echo "END"
     
 EXPOSE 8000
 
