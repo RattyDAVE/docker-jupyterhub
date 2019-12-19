@@ -109,7 +109,7 @@ RUN echo "--------------------------------------" && \
     echo "openjdk-8-jdk seems to be minimal version"
 
 ENV M2_HOME=/usr/share/maven
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
 
     RUN apt-get install -yqq openjdk-8-jdk
