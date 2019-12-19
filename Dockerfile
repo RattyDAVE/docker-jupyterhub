@@ -146,10 +146,11 @@ COPY scripts /scripts
 RUN chmod -R 755 /scripts 
 
 #EXAMPLES
+COPY examples /examples
 RUN echo "--------------------------------------" && \
     echo "----------- EXAMPLES -----------------" && \
     echo "--------------------------------------" && \
-    mkdir /examples  && cd /examples && \
+    cd /examples && \
     cp /usr/share/cling/Jupyter/kernel/cling.ipynb . && \
     mkdir /examples/tensorflow && cd /examples/tensorflow && \
     wget https://raw.githubusercontent.com/tensorflow/docs/master/site/en/tutorials/keras/classification.ipynb && \
@@ -170,6 +171,7 @@ RUN echo "--------------------------------------" && \
     cp -R /examples/ . && \
     chmod -R 777 . && \
     echo "END"
+
     
 EXPOSE 8000
 
