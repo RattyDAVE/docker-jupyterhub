@@ -2,6 +2,8 @@
 
 This is 99% tested. It is undergoing quite a few changes recently and will settle down over the next week or two. (from 15/Dec/2019).
 
+ALMOST THERE!
+
 The container is also a bit BIG! The Layers are not quite optimised yet. This makes debugging much quicker and easier. Once I am happy there is no major issues I will then link all the layers. (And it will hopfully be much smaller!)
 
 I have put some examples in ```/examples``` and will proceeed with some testing.
@@ -81,7 +83,7 @@ Use the following for a "quick start". This will create a user called ```user1``
 
 ```bash
 echo "user1:pass:n" > createusers.txt
-docker run -d -v $(pwd)/createusers.txt:/root/createusers.txt -p 8000:8000 rattydave/jupyterhub
+docker run -d -v createusers.txt:/root/createusers.txt -p 8000:8000 rattydave/jupyterhub
 ```
 
 
