@@ -150,6 +150,6 @@ Java is the mother of all JVM languages, first released in 1995 after years of d
 SQL (Structured Query Language) is one of the oldest and most popular languages for database access.
 BeakerX has first-class support for SQL, including syntax highlighting, autocompletion, and autotranslation to JavaScript (and more languages [coming](https://github.com/twosigma/beakerx/issues/5039)).
 
-TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks.[4] It is used for both research and production at Google.
+TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. It is used for both research and production at Google.
 
 PyTorch is an open source machine learning library based on the Torch library, used for applications such as computer vision and natural language processing. It is primarily developed by Facebook's AI Research lab (FAIR).
