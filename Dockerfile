@@ -60,7 +60,9 @@ RUN echo "--------------------------------------" && \
 RUN echo "--------------------------------------" && \
     echo "----- JAVA (Need for beakerx) --------" && \
     echo "--------------------------------------" && \
-    apt-get install -yqq openjdk-14-jdk maven gradle
+    echo "openjdk-14-jdk is not compatible with beakerx and gradle" && \
+    echo "openjdk-11-jdk seems to be optimal version" && \
+    apt-get install -yqq openjdk-11-jdk maven gradle
 #Add-ons && \
 RUN echo "--------------------------------------" && \
     echo "----------- ADDONS -------------------" && \
@@ -107,7 +109,7 @@ RUN echo "--------------------------------------" && \
     
 #Beakerx && \
 ENV M2_HOME=/usr/share/maven
-ENV JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
 RUN echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
