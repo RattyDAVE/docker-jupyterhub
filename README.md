@@ -20,12 +20,12 @@ Current state -
 - Groovy - Tested and working.
 - Java - Tested and Working.
 - Javascript (Node.js) - Tested and Working.
-- Julia 1.0.3 - NOT TESTED
+- Julia 1.0.3 - Tested and Working.
 - Kotlin - Tested and Working.
 - Markdown -  Tested and Working.
 - Scala - Tested and Working.
 - SQL - Tested and Working.
-- Typscript 
+- Typscript - NOT TESTED.
 - Python3 with Tensorflow. - Tested and Working.
 - Python3 with Torch. - NOT TESTED
 - Diagram - Tested and Working. (Small issue with tool-tips. This is a know issue.)
@@ -42,7 +42,7 @@ Contents
 - BeakerX 1.4.1 (provides Groovy, Scala, Clojure, Kotlin, Java, and SQL)
 - Julia 1.0.4
 - Python3
-  - Tensorflow
+  - Tensorflow 
   - Torch
 
 ```
@@ -83,7 +83,7 @@ Use the following for a "quick start". This will create a user called ```user1``
 
 ```bash
 echo "user1:pass:n" > createusers.txt
-docker run -d -v createusers.txt:/root/createusers.txt -p 8000:8000 rattydave/jupyterhub
+docker run -d -v $(pwd)/createusers.txt:/root/createusers.txt -p 8000:8000 rattydave/jupyterhub
 ```
 
 
