@@ -103,8 +103,9 @@ RUN echo "--------------------------------------" && \
     echo "--------------------------------------" && \
     echo "openjdk-14-jdk is not compatible with beakerx and gradle" && \
     echo "openjdk-11-jdk seems to be minimal version (kotlin does not work)" && \ 
-    echo "openjdk-8-jdk latest version supported by kotin from beakerx" && \
-    apt-get install -y openjdk-8-jdk maven gradle 
+    echo "openjdk-8-jdk latest version supported by kotin from beakerx and needs to be installed BEFORE maven and gradle" && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y maven gradle 
  
 #Beakerx && \
 RUN echo "--------------------------------------" && \
