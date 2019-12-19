@@ -14,6 +14,8 @@ fi
 # username2:password2:Y
 
 file="/root/createusers.txt"
+cat $file
+
 if [ -f $file ]
   then
     while IFS=: read -r username password is_sudo
@@ -26,7 +28,6 @@ if [ -f $file ]
               else
                 useradd -ms /bin/bash $username
                 usermod -aG audio $username
-                usermod -aG input $username
                 usermod -aG video $username
                 mkdir -p /run/user/$(id -u $username)/dbus-1/
                 chmod -R 700 /run/user/$(id -u $username)/
