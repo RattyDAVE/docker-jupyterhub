@@ -56,13 +56,6 @@ RUN echo "--------------------------------------" && \
     echo "--------------------------------------" && \
     pip3 install --no-cache-dir loguru pysnooper numpy scipy pandas pyarrow>=0.14.0 dask[complete] scikit-learn xgboost matplotlib bokeh holoviews[recommended] hvplot tabulate JPype1==0.6.3 JayDeBeApi sqlparse requests[socks] lxml notifiers && \
     jupyter labextension install @pyviz/jupyterlab_pyviz
-#Java && \
-RUN echo "--------------------------------------" && \
-    echo "----- JAVA (Need for beakerx) --------" && \
-    echo "--------------------------------------" && \
-    echo "openjdk-14-jdk is not compatible with beakerx and gradle" && \
-    echo "openjdk-11-jdk seems to be optimal version" && \
-    apt-get install -yqq openjdk-11-jdk maven gradle
 #Add-ons && \
 RUN echo "--------------------------------------" && \
     echo "----------- ADDONS -------------------" && \
@@ -100,13 +93,21 @@ RUN echo "--------------------------------------" && \
     ijsinstall --hide-undefined --install=global  && \
     npm cache clean --force
 #clean up
+#RUN echo "--------------------------------------" && \
+#    echo "----------- CLEANUP ------------------" && \
+#    echo "--------------------------------------" && \
+#    apt-get -y autoclean && apt-get -y autoremove && \
+#    apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
+#    rm -rf /var/lib/apt/lists/*
+ 
+#Java && \
 RUN echo "--------------------------------------" && \
-    echo "----------- CLEANUP ------------------" && \
+    echo "----- JAVA (Need for beakerx) --------" && \
     echo "--------------------------------------" && \
-    apt-get -y autoclean && apt-get -y autoremove && \
-    apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
-    rm -rf /var/lib/apt/lists/*
-    
+    echo "openjdk-14-jdk is not compatible with beakerx and gradle" && \
+    echo "openjdk-11-jdk seems to be optimal version" && \
+    apt-get install -yqq openjdk-11-jdk maven gradle 
+ 
 #Beakerx && \
 ENV M2_HOME=/usr/share/maven
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
@@ -114,15 +115,15 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 RUN echo "--------------------------------------" && \
     echo "----------- BEAKERX ------------------" && \
     echo "--------------------------------------" && \
-    ##pip3 install --no-cache-dir py4j beakerx && \
-    ##beakerx install && \
-    ##jupyter labextension install beakerx-jupyterlab
-    cd /root && \
-    git clone https://github.com/twosigma/beakerx.git && \
-    cd beakerx/beakerx && \ 
-    pip install -r requirements.txt && \
-    cd .. && \
+    pip3 install --no-cache-dir py4j beakerx && \
     beakerx install && \
+    #jupyter labextension install beakerx-jupyterlab
+    #cd /root && \
+    #git clone https://github.com/twosigma/beakerx.git && \
+    #cd beakerx/beakerx && \ 
+    #pip install -r requirements.txt && \
+    #cd .. && \
+    #beakerx install && \
     #beakerx_databrowser install && \
     jupyter labextension install beakerx-jupyterlab
 
