@@ -2,7 +2,7 @@
 
 This is 95% tested. It is undergoing quite a few changes recently and will settle down over the next week or two. (from 15/Dec/2019).
 
-It is also a bit BIG! The Layers are not quite optimised yet. This makes debugging much quicker and easier. Once I am happy there is no major issues I will then link all the containers. (And it will hopfully be much smaller!)
+The container is also a bit BIG! The Layers are not quite optimised yet. This makes debugging much quicker and easier. Once I am happy there is no major issues I will then link all the layers. (And it will hopfully be much smaller!)
 
 I have put some examples in ```/examples``` and will proceeed with some testing.
 
@@ -19,7 +19,7 @@ Current state -
 - Java - Tested and Working.
 - Javascript (Node.js) - Tested and Working.
 - Julia 1.0.3 - NOT TESTED
-- Kotlin - Tested and NOT working.
+- Kotlin - Tested and Working.
 - Markdown -  Tested and Working.
 - Scala - Tested and Working.
 - SQL - Tested and Working.
@@ -36,7 +36,7 @@ Contents
 
 - Base is Ubuntu 19.10
 - Cling (provides interactive C++)
-- OpenJDK 14
+- OpenJDK 8 (Required for Kotlin)
 - BeakerX 1.4.1 (provides Groovy, Scala, Clojure, Kotlin, Java, and SQL)
 - Julia 1.0.4
 - Python3
