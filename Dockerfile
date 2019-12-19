@@ -159,7 +159,7 @@ RUN echo "--------------------------------------" && \
     wget https://raw.githubusercontent.com/binder-examples/demo-julia/master/demo.ipynb && \
     cd /workdir && \
     cp -R /examples/ . && \
-    chmod -r 777 . && \
+    chmod -R 777 . && \
     echo "END"
     
 EXPOSE 8000
