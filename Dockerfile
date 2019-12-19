@@ -79,6 +79,8 @@ RUN apt-get update -yqq && \
     jupyter labextension install jupyterlab-drawio && \
     jupyter labextension install @wallneradam/run_all_buttons && \
     jupyter labextension install jupyterlab-spreadsheet && \
+    pip install --upgrade jupyterlab-git && \
+    jupyter lab build && \
 #Julia && \
     echo "--------------------------------------" && \
     echo "----------- JULIA --------------------" && \
