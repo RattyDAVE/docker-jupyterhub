@@ -158,7 +158,7 @@ RUN echo "--------------------------------------" && \
     cd  /examples/julia && \
     wget https://raw.githubusercontent.com/binder-examples/demo-julia/master/demo.ipynb && \
     cd /workdir && \
-    cd -R /examples/ . && \
+    cp -R /examples/ . && \
     chmod -r 777 . && \
     echo "END"
     
