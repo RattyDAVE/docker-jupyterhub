@@ -1,5 +1,9 @@
 FROM ubuntu:19.10
 
+ENV M2_HOME=/usr/share/maven
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin
+
 RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get update -yqq && \ 
     apt-get install -yqq --no-install-recommends sudo curl git wget && \
@@ -92,13 +96,6 @@ RUN echo "--------------------------------------" && \
     its --ts-hide-undefined --install=global && \
     ijsinstall --hide-undefined --install=global  && \
     npm cache clean --force
-#clean up
-#RUN echo "--------------------------------------" && \
-#    echo "----------- CLEANUP ------------------" && \
-#    echo "--------------------------------------" && \
-#    apt-get -y autoclean && apt-get -y autoremove && \
-#    apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
-#    rm -rf /var/lib/apt/lists/*
  
 #Java && \
 RUN echo "--------------------------------------" && \
@@ -106,14 +103,8 @@ RUN echo "--------------------------------------" && \
     echo "--------------------------------------" && \
     echo "openjdk-14-jdk is not compatible with beakerx and gradle" && \
     echo "openjdk-11-jdk seems to be minimal version (kotlin does not work)" && \ 
-    echo "openjdk-8-jdk seems to be minimal version"
-
-ENV M2_HOME=/usr/share/maven
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH=$PATH:$JAVA_HOME/bin
-
-    RUN apt-get install -yqq openjdk-8-jdk
-    RUN apt-get install -yqq maven gradle 
+    echo "openjdk-8-jdk latest version supported by kotin from beakerx" && \
+    apt-get install -y openjdk-8-jdk maven gradle 
  
 #Beakerx && \
 RUN echo "--------------------------------------" && \
@@ -130,6 +121,14 @@ RUN echo "--------------------------------------" && \
     #beakerx install && \
     #beakerx_databrowser install && \
     jupyter labextension install beakerx-jupyterlab
+    
+#clean up
+#RUN echo "--------------------------------------" && \
+#    echo "----------- CLEANUP ------------------" && \
+#    echo "--------------------------------------" && \
+#    apt-get -y autoclean && apt-get -y autoremove && \
+#    apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
+#    rm -rf /var/lib/apt/lists/* /tmp/*
 
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
@@ -158,6 +157,9 @@ RUN echo "--------------------------------------" && \
     mkdir /examples/julia && \
     cd  /examples/julia && \
     wget https://raw.githubusercontent.com/binder-examples/demo-julia/master/demo.ipynb && \
+    cd /workdir && \
+    cd -R /examples/ . && \
+    chmod -R 777 . && \
     echo "END"
     
 EXPOSE 8000
