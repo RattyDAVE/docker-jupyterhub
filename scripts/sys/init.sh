@@ -47,7 +47,7 @@ if [ -f $startfile ]
 fi
 
 export M2_HOME=/usr/share/maven
-export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=$PATH:$JAVA_HOME/bin
 
 mkdir -p ~/.jupyter
