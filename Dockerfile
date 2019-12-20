@@ -145,7 +145,8 @@ ADD settings/jupyterhub_config.py /etc/jupyterhub/
 ADD StartHere.ipynb /etc/skel
 COPY scripts /scripts
 
-RUN chmod -R 755 /scripts 
+RUN chmod -R 755 /scripts && \
+    jupyter trust /etc/skel/StartHere.ipynb
 
 #EXAMPLES
 #COPY examples /examples
