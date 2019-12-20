@@ -1,35 +1,3 @@
-# Please Note:
-
-This is 99% tested. It is undergoing quite a few changes recently and will settle down over the next week or two. (from 15/Dec/2019).
-
-ALMOST THERE!
-
-The container is also a bit BIG! The Layers are not quite optimised yet. This makes debugging much quicker and easier. Once I am happy there is no major issues I will then link all the layers. (And it will hopfully be much smaller!)
-
-I have put some examples in ```/examples``` and will proceeed with some testing.
-
-Current state - 
-- Python3 - Tested and working.
-- Bash - Tested and working.
-- C++ - Tested and working.
-  - C++11
-  - C++14
-  - C++17
-  - C++1z
-- Clojure - Tested and working.
-- Groovy - Tested and working.
-- Java - Tested and Working.
-- Javascript (Node.js) - Tested and Working.
-- Julia 1.0.3 - Tested and Working.
-- Kotlin - Tested and Working.
-- Markdown -  Tested and Working.
-- Scala - Tested and Working.
-- SQL - Tested and Working.
-- Typscript - NOT TESTED.
-- Python3 with Tensorflow. - Tested and Working.
-- Python3 with Torch. - NOT TESTED
-- Diagram - Tested and Working. (Small issue with tool-tips. This is a know issue.)
-
 Use https://github.com/RattyDAVE/docker-jupyterhub/issues to send feedback, issues, comments and general chat.
 
 # JupyterHub.
@@ -51,12 +19,15 @@ docker run -d  --restart unless-stopped \
     --log-opt max-size=50m \
     --memory=$(($(head -n 1 /proc/meminfo | awk '{print $2}') * 4 / 5))k \
     --cpus=$(($(nproc) - 1)) \
+    -v %LOCAL_PATH_TO_HOMES%:/home \
     -v %LOCAL_PATH_TO_CREATEUSERS.TXT_FILE%:/root/createusers.txt \
     -v %LOCAL_PATH_TO_STARTUP.SH_FILE%:/root/startup.sh \
     -p 8000:8000 \
-    -v $(pwd):/workdir \
     rattydave/jupyterhub
 ```
+
+
+Replace ```%LOCAL_PATH_TO_HOMES%``` with the path to the home directory on the host file system.
 
 Replace ```%LOCAL_PATH_TO_CREATEUSERS.TXT_FILE%``` with the local filename of the createusers file.
 
@@ -118,10 +89,10 @@ docker run -d  --restart unless-stopped \
     --log-opt max-size=50m \
     --memory=$(($(head -n 1 /proc/meminfo | awk '{print $2}') * 4 / 5))k \
     --cpus=$(($(nproc) - 1)) \
+    -v %LOCAL_PATH_TO_HOMES%:/home \
     -v %LOCAL_PATH_TO_CREATEUSERS.TXT_FILE%:/root/createusers.txt \
     -v %LOCAL_PATH_TO_STARTUP.SH_FILE%:/root/startup.sh \
     -p 8000:8000 \
-    -v $(pwd):/workdir \
     --env "VIRTUAL_HOST=othersubdomain.yourdomain.tld" \
     --env "VIRTUAL_PORT=8000" \
     --env "LETSENCRYPT_HOST=othersubdomain.yourdomain.tld" \
