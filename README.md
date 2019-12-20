@@ -132,3 +132,65 @@ TensorFlow is a free and open-source software library for dataflow and different
 
 ### Torch
 PyTorch is an open source machine learning library based on the Torch library, used for applications such as computer vision and natural language processing. It is primarily developed by Facebook's AI Research lab (FAIR).
+
+# Tutorials and Examples
+
+Included in this container is Examples and Tutorials.
+
+### BeakerX
+
+Jupyter and BeakerX are based on the idea of the lab notebook, brought to life in your web browser. Each notebook is a place for recording the written ideas, data, images, spreadsheets, diagrams, equations, and especially code, that one produces in the course of research. You can analyze, visualize, and document data and science, using multiple programming languages. BeakerX is an extension of Jupyter, including kernels for the JVM langauges, autotranslation between languages (prototype), interactive plots, tables, Spark, and more.
+
+The Jupyter documentation covers interacting with code cells, markdown, and notebooks. The tutorials below show the features of the BeakerX extension.
+
+BeakerX's plots and tables also feature an innovative approach to the scroll wheel and zoom gestures.
+
+#### Languages
+Groovy, Java, Scala, Clojure, SQL, Kotlin.
+
+#### Magics
+Timing, Classpath and Imports, Polyglot Magics, Defining New Magics.
+
+#### Options Panels
+Properties, Heap Size, and other JVM Options, UI Options.
+
+#### Autotranslation
+Python to JS and D3, Groovy to JS and D3, General Autotranslation.
+
+#### Groovy Plotting and Charting
+Example and Interaction, Time Series and General APIs and Features, Category Plots and Bar Charts, Levels of Detail, Histograms, Heatmaps, Treemaps, Plot Actions, Plot Seamless Updates, 3D Visualization and Maps.
+
+#### Table Display
+Groovy API including Actions, 64-Bit Integers and BigNums, Automatic Display of Simple Data Structures, Handling of Large Tables.
+
+#### BeakerX Plotting in Other Languages
+JavaScript, Python, Scala.
+
+#### Python
+Tables including pandas integration, Time Series, Plot Actions, Heatmaps, Category Plots, Treemaps, Histograms, EasyForm, Output Containers, Magics to access the JVM.
+
+#### Scala
+Tables, Plotting, EasyForm.
+
+#### Rich Outputs and Displayer Customization
+Media and MIME Outputs, General Display, Display of Null, Custom Displayers and jvm-repr.
+
+#### Forms, Widgets, and Interaction
+EasyForm, Output Widget, Output Containers and Layout Managers, Groovy interface to Jupyter JS Widgets, Styling Widgets, Interactive recomputation.
+
+#### Automation
+Progress Reporting API, Initialization Cells, Get Code, Run Another Cell.
+
+#### Tablesaw
+Tablesaw Pandas for the JVM.
+
+#### Spark
+Plain Spark cluster computing using on Scala, Spark Magic for deeper integration, and the Flint time series library.
+
+#### More Integrations
+DataVec (DeepLearning4j), STIL (Starlink Tables Infrastructure Library).
+
+### Torch
+A FULL course from beginner to advanced.
+
+
