@@ -102,24 +102,33 @@ docker run -d  --restart unless-stopped \
 
 # Languages
 
+### C++
 C++ kernel with [Cling](https://cern.ch/cling) is an interpreter for C++.
 
+### Clojure
 [Clojure](http://clojure.org/) is a dialect of Lisp that runs in the JVM.
 It shares with Lisp the code-as-data philosophy and a powerful macro system.
 Clojure is predominantly a functional programming language, and features a rich set of immutable, persistent data structures.
 It has strong support for reliable multithreading and concurrency.
 
+### Groovy
 [Apache Groovy](http://groovy-lang.org/) is the language that should have been called JavaScript because it is a scripting version of Java.
 
+### Java
 Java is the mother of all JVM languages, first released in 1995 after years of development by Sun Microsystems.  BeakerX uses [OpenJDK](http://openjdk.java.net/) for Java and all the kernels.
 
+### Kotlin
 [Kotlin](https://kotlinlang.org/) is a relative newcomer from [JetBrains](https://www.jetbrains.com/) and [Android](https://developer.android.com/kotlin/get-started.html).  It's intended to be an improved version of Java, including [Null Safety](https://kotlinlang.org/docs/reference/null-safety.html).
 
-[Scala](https://www.scala-lang.org/) combines the functional/type-inference paradigm and the object-oriented paradigm, and is also meant to be an improved version of Java.  Scala is the native language of [Apache Spark](Spark.ipynb).
+### Scala
+[Scala](https://www.scala-lang.org/) combines the functional/type-inference paradigm and the object-oriented paradigm, and is also meant to be an improved version of Java.  Scala is the native language of Apache Spark.
 
+### SQL
 SQL (Structured Query Language) is one of the oldest and most popular languages for database access.
 BeakerX has first-class support for SQL, including syntax highlighting, autocompletion, and autotranslation to JavaScript (and more languages [coming](https://github.com/twosigma/beakerx/issues/5039)).
 
+### Tensorflow
 TensorFlow is a free and open-source software library for dataflow and differentiable programming across a range of tasks. It is a symbolic math library, and is also used for machine learning applications such as neural networks. It is used for both research and production at Google.
 
+### Torch
 PyTorch is an open source machine learning library based on the Torch library, used for applications such as computer vision and natural language processing. It is primarily developed by Facebook's AI Research lab (FAIR).
