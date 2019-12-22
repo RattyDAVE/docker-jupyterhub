@@ -3,7 +3,7 @@ FROM ubuntu:19.10
 ENV DEBIAN_FRONTEND noninteractive
 ENV M2_HOME=/usr/share/maven
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH=$PATH:$JAVA_HOME/bin
+ENV PATH=$PATH:$JAVA_HOME/bin:~/.local/bin
 
 #Note: This layer is needed to get PYTHON PIP and PYTHON SETUPTOOLS upgraded. For some reason this can't be combined and it causes and error when using pip3.
 RUN mkdir -p /workdir && chmod 777 /workdir && \
