@@ -8,7 +8,7 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 #Note: This layer is needed to get PYTHON PIP and PYTHON SETUPTOOLS upgraded. For some reason this can't be combined and it causes and error when using pip3.
 RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get update -yqq && \ 
-    apt-get install -yqq --no-install-recommends sudo curl git wget tzdata && \
+    apt-get install -yqq --no-install-recommends sudo curl git wget tzdata libjpeg-dev && \
     apt-get install -yqq python3 python3-pip && \
     pip3 --no-cache-dir install --upgrade pip setuptools && \
     #python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
