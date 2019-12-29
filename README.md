@@ -2,7 +2,15 @@ Use https://github.com/RattyDAVE/docker-jupyterhub/issues to send feedback, issu
 
 # JupyterHub
 
-Contents
+JupyterHub brings the power of notebooks to groups of users. It gives users access to computational environments and resources without burdening the users with installation and maintenance tasks. Users - including students, researchers, and data scientists - can get their work done in their own workspaces on shared resources which can be managed efficiently by system administrators.
+
+JupyterHub makes it possible to serve a pre-configured data science environment to any user in the world. It is customizable and scalable, and is suitable for small and large teams, academic courses, and large-scale infrastructure.
+
+The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+
+JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.
+
+## Contents
 
 - Base is Ubuntu 19.10
 - Cling (provides interactive C++)
@@ -12,6 +20,8 @@ Contents
 - Python3
   - Tensorflow 
   - Torch
+  
+## Install  
 
 ```
 docker run -d  --restart unless-stopped \
@@ -33,7 +43,7 @@ Replace ```%LOCAL_PATH_TO_CREATEUSERS.TXT_FILE%``` with the local filename of th
 
 This file contains 3 fields (username:password:is_sudo). Where username is the login id. Password is the password. is_sudo does the user have sudo access(only Y is recognised). It also needs a "newline" at the end of the line.
 
-Example
+### Example
 
 ```
 mickey:mouse:N
@@ -48,7 +58,7 @@ At every reboot it will check this file and ADD any new users.
 
 Replace ```%LOCAL_PATH_TO_STARTUP.SH_FILE%``` with the local filename of the startup.sh script. This is run after the user creation and before the service start.
 
-## Minimal config
+### Minimal config
 
 Use the following for a "quick start". This will create a user called ```user1``` and password ```pass```. Then point your browser to ```http://127.0.0.1:8000```.
 
@@ -57,7 +67,7 @@ echo "user1:pass:n" > createusers.txt
 docker run -d -v $(pwd)/createusers.txt:/root/createusers.txt -p 8000:8000 rattydave/jupyterhub
 ```
 
-# To add SSL
+## To add SSL
 
 To add SSL authentication you need to open port 80 and 443 to the internet.
 
@@ -78,7 +88,7 @@ docker run --detach \
     --name nginx-proxy-letsencrypt \
     --volumes-from nginx-proxy \
     --volume /var/run/docker.sock:/var/run/docker.sock:ro \
-    --env "DEFAULT_EMAIL=you_mail@yourdomain.tld" \
+    --env "DEFAULT_EMAIL=your_mail@yourdomain.tld" \
     jrcs/letsencrypt-nginx-proxy-companion
 ```
 
@@ -95,12 +105,12 @@ docker run -d  --restart unless-stopped \
     --env "VIRTUAL_HOST=othersubdomain.yourdomain.tld" \
     --env "VIRTUAL_PORT=8000" \
     --env "LETSENCRYPT_HOST=othersubdomain.yourdomain.tld" \
-    --env "LETSENCRYPT_EMAIL=you_mail@yourdomain.tld" \
+    --env "LETSENCRYPT_EMAIL=your_mail@yourdomain.tld" \
     rattydave/jupyterhub
 ```
 
 
-# Languages
+## Languages
 
 ### C++
 C++ kernel with [Cling](https://cern.ch/cling) is an interpreter for C++.
@@ -133,7 +143,7 @@ TensorFlow is a free and open-source software library for dataflow and different
 ### Torch
 PyTorch is an open source machine learning library based on the Torch library, used for applications such as computer vision and natural language processing. It is primarily developed by Facebook's AI Research lab (FAIR).
 
-# Tutorials and Examples
+## Tutorials and Examples
 
 Included in this container is Examples and Tutorials.
 
