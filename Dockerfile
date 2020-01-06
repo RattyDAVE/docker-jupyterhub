@@ -3,12 +3,13 @@ FROM ubuntu:19.10
 ENV DEBIAN_FRONTEND noninteractive
 ENV M2_HOME=/usr/share/maven
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH=$PATH:$JAVA_HOME/bin:~/.local/bin
+ENV PATH=$PATH:$JAVA_HOME/bin:opt/conda/bin:~/.local/bin
+
 
 #Note: This layer is needed to get PYTHON PIP and PYTHON SETUPTOOLS upgraded. For some reason this can't be combined and it causes and error when using pip3.
 RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get update -yqq && \ 
-    apt-get install -yqq --no-install-recommends sudo curl git wget tzdata libjpeg-dev && \
+    apt-get install -yqq --no-install-recommends sudo curl git wget tzdata libjpeg-dev bzip2 && \
     apt-get install -yqq python3 python3-pip && \
     pip3 --no-cache-dir install --upgrade pip setuptools && \
     #python3-venv python3-all-dev python3-setuptools build-essential python3-wheel && \
@@ -19,6 +20,17 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get -y autoclean && apt-get -y autoremove && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
     rm -rf /var/lib/apt/lists/* /tmp/*
+
+RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
+    bash /tmp/miniconda.sh -bfp /usr/local && \
+    rm -rf /tmp/miniconda.sh && \
+    conda install -y python=3 && \
+    conda update conda && \
+    conda clean --all --yes
+    
+RUN conda install cling -c QuantStack -c conda-forge -y && \
+    conda install xeus-cling -c QuantStack -c conda-forge -y && \
+    conda clean --all --yes
 
 RUN apt-get update -yqq && \ 
 #Tensorflow && \
