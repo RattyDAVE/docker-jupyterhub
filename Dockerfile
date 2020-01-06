@@ -21,17 +21,6 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
-RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
-    bash /tmp/miniconda.sh -bfp /usr/local && \
-    rm -rf /tmp/miniconda.sh && \
-    conda install -y python=3 && \
-    conda update conda && \
-    conda clean --all --yes
-    
-RUN conda install cling -c QuantStack -c conda-forge -y && \
-    conda install xeus-cling -c QuantStack -c conda-forge -y && \
-    conda clean --all --yes
-
 RUN apt-get update -yqq && \ 
 #Tensorflow && \
     echo "--------------------------------------" && \
@@ -159,6 +148,17 @@ COPY scripts /scripts
 
 RUN chmod -R 755 /scripts && \
     jupyter trust /etc/skel/StartHere.ipynb
+    
+RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
+    bash /tmp/miniconda.sh -bfp /usr/local && \
+    rm -rf /tmp/miniconda.sh && \
+    conda install -y python=3 && \
+    conda update conda && \
+    conda clean --all --yes
+    
+RUN conda install cling -c QuantStack -c conda-forge -y && \
+    conda install xeus-cling -c QuantStack -c conda-forge -y && \
+    conda clean --all --yes
 
 #EXAMPLES
 #COPY examples /examples
