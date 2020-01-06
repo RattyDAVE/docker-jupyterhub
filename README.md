@@ -13,7 +13,7 @@ JupyterLab is a web-based interactive development environment for Jupyter notebo
 ## Contents
 
 - Base is Ubuntu 19.10
-- Cling (provides interactive C++)
+- xeus-cling (provides interactive C++)
 - OpenJDK 8 (Required for Kotlin)
 - BeakerX 1.4.1 (provides Groovy, Scala, Clojure, Kotlin, Java, and SQL)
 - Julia 1.0.4
@@ -113,7 +113,10 @@ docker run -d  --restart unless-stopped \
 ## Languages
 
 ### C++
-C++ kernel with [Cling](https://cern.ch/cling) is an interpreter for C++.
+[Xeus-cling](https://github.com/jupyter-xeus/xeus-cling) is a Jupyter kernel for C++ based on the C++ interpreter cling and the native implementation of the Jupyter protocol xeus.
+xeus cling is a replacement for the C++ kernel with [Cling](https://cern.ch/cling).
+
+Included is a C++ full course from Derek Banas's video [tutorials](https://www.youtube.com/playlist?list=PLGLfVvz_LVvQ9S8YSV0iDsuEU8v11yP9M).
 
 ### Clojure
 [Clojure](http://clojure.org/) is a dialect of Lisp that runs in the JVM.
