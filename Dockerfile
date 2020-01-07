@@ -91,15 +91,15 @@ RUN apt-get update -yqq && \
     chmod -R +rx /usr/share/julia/  && \
     chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/ && \
 #C++ && \
-    #echo "--------------------------------------" && \
-    #echo "----------- C++ ----------------------" && \
-    #echo "--------------------------------------" && \
+    echo "--------------------------------------" && \
+    echo "----------- C++ ----------------------" && \
+    echo "--------------------------------------" && \
     apt-get install -yqq libtinfo5 && \
-    #mkdir -p ~/pre && cd ~/pre && \
-    #wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
-    #cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
-    #cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
-    #jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \
+    mkdir -p ~/pre && cd ~/pre && \
+    wget https://root.cern.ch/download/cling/cling_2019-12-08_ubuntu18.tar.bz2 && tar jxf cling_2019-12-08_ubuntu18.tar.bz2 && \
+    cd cling_2019-12-08_ubuntu18 && cp -r . /usr/. && cd ~ && rm -r pre && \
+    cd /usr/share/cling/Jupyter/kernel && pip3 install -e . && \
+    jupyter kernelspec install cling-cpp11 && jupyter kernelspec install cling-cpp14 && jupyter kernelspec install cling-cpp17 && jupyter kernelspec install cling-cpp1z && \
 #NodeJS  && \
     echo "--------------------------------------" && \
     echo "----------- NodeJS -------------------" && \
@@ -149,16 +149,16 @@ COPY scripts /scripts
 RUN chmod -R 755 /scripts && \
     jupyter trust /etc/skel/StartHere.ipynb
     
-RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
-    bash /tmp/miniconda.sh -bfp /usr/local && \
-    rm -rf /tmp/miniconda.sh && \
-    conda install -y python=3 && \
-    conda update conda && \
-    conda clean --all --yes
+#RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
+#    bash /tmp/miniconda.sh -bfp /usr/local && \
+#    rm -rf /tmp/miniconda.sh && \
+#    conda install -y python=3 && \
+#    conda update conda && \
+#    conda clean --all --yes
     
-RUN conda install cling -c QuantStack -c conda-forge -y && \
-    conda install xeus-cling -c QuantStack -c conda-forge -y && \
-    conda clean --all --yes
+#RUN conda install cling -c QuantStack -c conda-forge -y && \
+#    conda install xeus-cling -c QuantStack -c conda-forge -y && \
+#    conda clean --all --yes
 
 #EXAMPLES
 #COPY examples /examples
