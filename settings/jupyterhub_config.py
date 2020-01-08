@@ -39,10 +39,10 @@
 ## Grant admin users permission to access single-user servers.
 #  
 #  Users should be properly informed if this is enabled.
-c.JupyterHub.admin_access = True
+c.JupyterHub.admin_access = False
 
 ## Allow named single-user servers per user
-#c.JupyterHub.allow_named_servers = False
+c.JupyterHub.allow_named_servers = False
 
 ## Answer yes to any questions (e.g. confirm overwrite)
 #c.JupyterHub.answer_yes = False
@@ -85,7 +85,7 @@ c.JupyterHub.authenticator_class = 'jupyterhub.auth.PAMAuthenticator'
 #  only shutdown the Hub, leaving everything else running.
 #  
 #  The Hub should be able to resume from database state.
-#c.JupyterHub.cleanup_proxy = True
+c.JupyterHub.cleanup_proxy = True
 
 ## Whether to shutdown single-user servers when the Hub shuts down.
 #  
@@ -236,6 +236,7 @@ c.JupyterHub.port = 8000
 
 ## Purge and reset the database.
 #c.JupyterHub.reset_db = False
+c.JupyterHub.reset_db = True
 
 ## Interval (in seconds) at which to check connectivity of services with web
 #  endpoints.
