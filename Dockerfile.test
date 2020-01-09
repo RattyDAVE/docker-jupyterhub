@@ -11,6 +11,17 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get install -yqq --no-install-recommends sudo curl git wget tzdata libjpeg-dev bzip2 && \
     apt-get install -yqq python3 python3-pip && \
     pip3 --no-cache-dir install --upgrade pip setuptools && \
+    \
+    #Java \
+    echo "--------------------------------------" && \
+    echo "----- JAVA (Need for beakerx) --------" && \
+    echo "--------------------------------------" && \
+    echo "openjdk-14-jdk is not compatible with beakerx and gradle" && \
+    echo "openjdk-11-jdk seems to be minimal version (kotlin does not work)" && \ 
+    echo "openjdk-8-jdk latest version supported by kotin from beakerx and needs to be installed BEFORE maven and gradle" && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y maven gradle && \
+    \
     apt-get -y autoclean && apt-get -y autoremove && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
     rm -rf /var/lib/apt/lists/* /tmp/*
@@ -29,10 +40,16 @@ RUN conda install notebook
 
 #Tensorflow
 RUN conda install matplotlib
-RUN conda install tensorflow 
+RUN conda install tensorflow
+
+#Torch
+RUN conda install -c pytorch pytorch torchvision
 
 #Xeus-Cling 
-RUN conda install xeus-cling -c conda-forge
+RUN conda install -c conda-forge xeus-cling
+
+#BeakerX
+RUN conda install -c conda-forge ipywidgets beakerx
 
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
