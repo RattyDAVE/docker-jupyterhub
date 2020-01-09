@@ -27,8 +27,12 @@ RUN conda install -c conda-forge jupyterhub
 RUN conda install -c conda-forge jupyterlab
 RUN conda install notebook
 
+#Tensorflow
 RUN conda install matplotlib
 RUN conda install tensorflow 
+
+#Xeus-Cling 
+RUN conda install xeus-cling -c conda-forge
 
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
