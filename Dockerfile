@@ -48,6 +48,10 @@ RUN conda install -c conda-forge jupyterhub
 RUN conda install -c conda-forge jupyterlab
 RUN conda install notebook
 
+#nbgitpuller
+RUN conda install -c conda-forge nbgitpuller
+#example https://<URL>/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FRattyDAVE%2Fjupyter-tutorial&urlpath=tree%2Fjupyter-tutorial%2F
+
 #Tensorflow
 RUN conda install matplotlib
 RUN conda install tensorflow
