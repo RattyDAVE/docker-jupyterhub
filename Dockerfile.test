@@ -22,6 +22,12 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get install -y openjdk-8-jdk && \
     apt-get install -y maven gradle && \
     \
+    #Julia && \
+    echo "--------------------------------------" && \
+    echo "----------- JULIA INSTALL ------------" && \
+    echo "--------------------------------------" && \
+    apt-get install -yq julia && \
+    \
     apt-get -y autoclean && apt-get -y autoremove && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
     rm -rf /var/lib/apt/lists/* /tmp/*
@@ -51,6 +57,28 @@ RUN conda install -c conda-forge xeus-cling
 #BeakerX
 RUN conda install -c conda-forge ipywidgets beakerx
 
+#Bash Kernel
+RUN conda install -c conda-forge bash_kernel
+
+#NodeJS
+RUN echo "--------------------------------------" && \
+    echo "----------- NodeJS -------------------" && \
+    echo "--------------------------------------" && \
+    npm install -g --unsafe-perm ijavascript && \
+    npm install -g --unsafe-perm itypescript && \
+    its --ts-hide-undefined --install=global && \
+    ijsinstall --hide-undefined --install=global && \
+    npm cache clean --force
+
+#Julia
+RUN echo "--------------------------------------" && \
+    echo "----------- JULIA LINK TO JUPYTER ----" && \
+    echo "--------------------------------------" && \
+    julia -e 'empty!(DEPOT_PATH); push!(DEPOT_PATH, "/usr/share/julia"); using Pkg; Pkg.add("IJulia")'  && \
+    cp -r /root/.local/share/jupyter/kernels/julia-* /usr/local/share/jupyter/kernels/  && \
+    chmod -R +rx /usr/share/julia/  && \
+    chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/
+
 #Add Extentions
 RUN jupyter labextension install jupyterlab-drawio
 RUN jupyter labextension install @wallneradam/run_all_buttons
@@ -63,7 +91,6 @@ COPY scripts /scripts
 
 RUN chmod -R 755 /scripts && \
     jupyter trust /etc/skel/StartHere.ipynb
-    
     
 EXPOSE 8000
 
