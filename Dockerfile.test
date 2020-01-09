@@ -51,6 +51,11 @@ RUN conda install -c conda-forge xeus-cling
 #BeakerX
 RUN conda install -c conda-forge ipywidgets beakerx
 
+#Add Extentions
+RUN jupyter labextension install jupyterlab-drawio
+RUN jupyter labextension install @wallneradam/run_all_buttons
+RUN jupyter labextension install jupyterlab-spreadsheet
+
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
 ADD StartHere.ipynb /etc/skel
