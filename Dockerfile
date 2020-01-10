@@ -78,6 +78,11 @@ RUN conda install -c conda-forge bash_kernel
 #    ijsinstall --hide-undefined --install=global && \
 #    npm cache clean --force
 
+#NodeJS
+RUN conda install nodejs
+RUN npm install -g ijavascript
+RUN ijsinstall
+
 #Julia
 RUN echo "--------------------------------------" && \
     echo "----------- JULIA LINK TO JUPYTER ----" && \
