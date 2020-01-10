@@ -30,6 +30,9 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda update conda && \
     conda clean --all --yes
 
+#NodeJS	
+RUN conda install nodejs	
+
 #JupyterHub
 RUN conda install -c conda-forge jupyterhub
 RUN conda install -c conda-forge jupyterlab
