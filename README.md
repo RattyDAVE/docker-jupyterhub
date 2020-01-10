@@ -14,7 +14,6 @@ JupyterLab is a web-based interactive development environment for Jupyter notebo
 
 - Base is Ubuntu 19.10
 - xeus-cling (provides interactive C++)
-- OpenJDK 8 (Required for Kotlin)
 - BeakerX 1.4.1 (provides Groovy, Scala, Clojure, Kotlin, Java, and SQL)
 - Julia 1.0.4
 - Python3
