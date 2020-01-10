@@ -12,16 +12,6 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get install -yqq python3 python3-pip && \
     pip3 --no-cache-dir install --upgrade pip setuptools && \
     \
-    #Java \
-    #echo "--------------------------------------" && \
-    #echo "----- JAVA (Need for beakerx) --------" && \
-    #echo "--------------------------------------" && \
-    #echo "openjdk-14-jdk is not compatible with beakerx and gradle" && \
-    #echo "openjdk-11-jdk seems to be minimal version (kotlin does not work)" && \ 
-    #echo "openjdk-8-jdk latest version supported by kotin from beakerx and needs to be installed BEFORE maven and gradle" && \
-    #apt-get install -y openjdk-8-jdk && \
-    #apt-get install -y maven gradle && \
-    \
     #Julia && \
     echo "--------------------------------------" && \
     echo "----------- JULIA INSTALL ------------" && \
@@ -40,29 +30,37 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda update conda && \
     conda clean --all --yes
 
-#NodeJS
-RUN conda install nodejs
+RUN conda install -c conda-forge -c pytorch jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow \
+                                            pytorch torchvision \
+                                            xeus-cling \
+                                            ipywidgets beakerx \
+                                            bash_kernel && \
+    conda clean --all --yes
 
-#JupyterHub
-RUN conda install -c conda-forge jupyterhub
-RUN conda install -c conda-forge jupyterlab
-RUN conda install notebook
+#NodeJS
+#RUN conda install nodejs
+#RUN npm install -g ijavascript
+#RUN ijsinstall
+
+#nbgitpuller
+#RUN conda install -c conda-forge nbgitpuller
+#example https://<URL>/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FRattyDAVE%2Fjupyter-tutorial&urlpath=tree%2Fjupyter-tutorial%2F
 
 #Tensorflow
-RUN conda install matplotlib
-RUN conda install tensorflow
+#RUN conda install matplotlib
+#RUN conda install tensorflow
 
 #Torch
-RUN conda install -c pytorch pytorch torchvision
+#RUN conda install -c pytorch pytorch torchvision
 
 #Xeus-Cling 
-RUN conda install -c conda-forge xeus-cling
+#RUN conda install -c conda-forge xeus-cling
 
 #BeakerX
-RUN conda install -c conda-forge ipywidgets beakerx
+#RUN conda install -c conda-forge ipywidgets beakerx
 
 #Bash Kernel
-RUN conda install -c conda-forge bash_kernel
+#RUN conda install -c conda-forge bash_kernel
 
 #NodeJS
 #RUN echo "--------------------------------------" && \
