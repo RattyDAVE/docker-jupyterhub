@@ -36,9 +36,9 @@ RUN conda install -c conda-forge jupyterlab
 RUN conda install notebook
 
 #NodeJS
-RUN conda install nodejs
-RUN npm install -g ijavascript
-RUN ijsinstall
+#RUN conda install nodejs
+#RUN npm install -g ijavascript
+#RUN ijsinstall
 
 #nbgitpuller
 RUN conda install -c conda-forge nbgitpuller
