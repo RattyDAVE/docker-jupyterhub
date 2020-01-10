@@ -34,7 +34,8 @@ RUN conda install -c conda-forge -c pytorch jupyterhub jupyterlab notebook nbgit
                                             pytorch torchvision \
                                             xeus-cling \
                                             ipywidgets beakerx \
-                                            bash_kernel && \
+                                            bash_kernel \
+                                            nodejs && \
     conda clean --all --yes
 
 #NodeJS
