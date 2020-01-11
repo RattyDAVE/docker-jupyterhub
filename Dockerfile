@@ -9,11 +9,19 @@ ENV PATH=$PATH:$JAVA_HOME/bin:opt/conda/bin:~/.local/bin
 RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get update -yqq && \ 
     apt-get install -yqq --no-install-recommends sudo curl git wget tzdata libjpeg-dev bzip2 && \
-    apt-get install -yqq python3 python3-pip julia && \
+    apt-get install -yqq python3 python3-pip && \
     pip3 --no-cache-dir install --upgrade pip setuptools && \
+    \
+    #Julia && \
+    echo "--------------------------------------" && \
+    echo "----------- JULIA INSTALL ------------" && \
+    echo "--------------------------------------" && \
+    apt-get install -yq julia && \
+    \
     apt-get -y autoclean && apt-get -y autoremove && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
     rm -rf /var/lib/apt/lists/* /tmp/*
+
 
 RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
     bash /tmp/miniconda.sh -bfp /usr/local && \
@@ -22,13 +30,48 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda update conda && \
     conda clean --all --yes
 
-RUN conda install -c conda-forge -c pytorch jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow \
-                                            pytorch torchvision torchaudio \
-                                            xeus-cling \
-                                            ipywidgets beakerx \
-                                            bash_kernel \
-                                            nodejs && \
+RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow \
+                                                        pytorch torchvision torchaudio \
+                                                        xeus-cling \
+                                                        ipywidgets beakerx \
+                                                        bash_kernel \
+                                                        nodejs \
+                                                        ijavascript \
+sphinx \
+#sphinx-gallery==0.3.1 \
+sphinx-gallery \
+tqdm \
+numpy \
+torchtext \
+torchaudio \
+PyHamcrest \
+beautifulsoup4 \
+##awscli==1.16.35 \
+awscli \
+flask \
+spacy \
+\
+pandas \
+scikit-image \
+#pillow==4.1.1 \
+pillow \
+wget && \
     conda clean --all --yes
+
+#NodeJS
+#RUN conda install nodejs
+#RUN npm install -g ijavascript
+#RUN ijsinstall
+
+#NodeJS
+#RUN echo "--------------------------------------" && \
+#    echo "----------- NodeJS -------------------" && \
+#    echo "--------------------------------------" && \
+#    npm install -g --unsafe-perm ijavascript && \
+#    npm install -g --unsafe-perm itypescript && \
+#    its --ts-hide-undefined --install=global && \
+#    ijsinstall --hide-undefined --install=global && \
+#    npm cache clean --force
 
 #Julia
 RUN echo "--------------------------------------" && \
