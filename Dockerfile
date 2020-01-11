@@ -23,7 +23,7 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda clean --all --yes
 
 RUN conda install -c conda-forge -c pytorch jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow \
-                                            pytorch torchvision \
+                                            pytorch torchvision torchaudio \
                                             xeus-cling \
                                             ipywidgets beakerx \
                                             bash_kernel \
