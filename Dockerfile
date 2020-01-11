@@ -31,32 +31,17 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda clean --all --yes
 
 RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow \
-                                                        pytorch torchvision torchaudio \
+                                                        pytorch torchvision torchaudio torchtext \
                                                         xeus-cling \
                                                         ipywidgets beakerx \
                                                         bash_kernel \
                                                         nodejs \
-                                                        ijavascript \
-sphinx \
-#sphinx-gallery==0.3.1 \
-sphinx-gallery \
-tqdm \
-numpy \
-torchtext \
-torchaudio \
-PyHamcrest \
-beautifulsoup4 \
-##awscli==1.16.35 \
-awscli \
-flask \
-spacy \
-\
-pandas \
-scikit-image \
-#pillow==4.1.1 \
-pillow \
-wget && \
+                                                        ijavascript && \
     conda clean --all --yes
+    
+RUN npm install -g --unsafe-perm ijavascript && ijsinstall --hide-undefined --install=global
+
+RUN npm install -g --unsafe-perm itypescript && its --ts-hide-undefined --install=global
 
 #NodeJS
 #RUN conda install nodejs
