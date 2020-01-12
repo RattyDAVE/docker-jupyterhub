@@ -145,6 +145,11 @@ TensorFlow is a free and open-source software library for dataflow and different
 ### Torch
 PyTorch is an open source machine learning library based on the Torch library, used for applications such as computer vision and natural language processing. It is primarily developed by Facebook's AI Research lab (FAIR).
 
+## IJavascript
+IJavascript is a Javascript kernel for the [Jupyter notebook](http://jupyter.org/).
+
+The IJavascript kernel executes Javascript code inside a [Node.js](https://nodejs.org/) session. And thus, it behaves as the Node.js REPL does, providing access to the Node.js standard library and to any installed [npm](https://www.npmjs.com/) modules.
+
 ## Tutorials and Examples
 
 Included in this container is Examples and Tutorials.
@@ -207,5 +212,7 @@ A FULL course from beginner to advanced.
 
 ### Tensorflow
 All examples are included.
+
+
 
 
