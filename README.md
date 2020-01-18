@@ -118,6 +118,13 @@ xeus cling is a replacement for the C++ kernel with [Cling](https://cern.ch/clin
 
 Included is a C++ full course from Derek Banas's video [tutorials](https://www.youtube.com/playlist?list=PLGLfVvz_LVvQ9S8YSV0iDsuEU8v11yP9M).
 
+### Node.JS
+[Node.JS](https://nodejs.org/en/) is an Open-source software|open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a "JavaScript everywhere" paradigm, unifying web application development around a single programming language, rather than different languages for server- and client-side scripts.
+
+Though <code>.js</code> is the standard filename extension for JavaScript code, the name "Node.js" doesn't refer to a particular file in this context and is merely the name of the product. Node.js has an event-driven architecture capable of asynchronous I/O. These design choices aim to optimize throughput and scalability in web applications with many input/output operations, as well as for real-time Web applications (e.g., real-time communication programs and browser games).
+
+The Node.js distributed development project, governed by the Node.js Foundation.
+
 ### Clojure
 [Clojure](http://clojure.org/) is a dialect of Lisp that runs in the JVM.
 It shares with Lisp the code-as-data philosophy and a powerful macro system.
