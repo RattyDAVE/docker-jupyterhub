@@ -16,6 +16,7 @@ The Jupyter Notebook is an open-source web application that allows you to create
 - xeus-cling (provides interactive C++)
 - BeakerX 1.4.1 (provides Groovy, Scala, Clojure, Kotlin, Java, and SQL)
 - Julia 1.0.4
+- NodeJS
 - Python3
   - Tensorflow 
   - Torch
