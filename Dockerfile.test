@@ -5,8 +5,8 @@ FROM jupyterhub/jupyterhub
 ADD StartHere.ipynb /etc/skel
 COPY scripts /scripts
 
-RUN chmod -R 755 /scripts && \
-    jupyter trust /etc/skel/StartHere.ipynb
+RUN chmod -R 755 /scripts
+#RUN jupyter trust /etc/skel/StartHere.ipynb
     
 EXPOSE 8000
 
