@@ -68,7 +68,7 @@ RUN echo "--------------------------------------" && \
     chmod -R +rx /usr/local/share/jupyter/kernels/julia-*/
 
 #Add Extentions
-RUN jupyter labextension install jupyterlab-drawio
+#RUN jupyter labextension install jupyterlab-drawio
 RUN jupyter labextension install @wallneradam/run_all_buttons
 RUN jupyter labextension install jupyterlab-spreadsheet
 
