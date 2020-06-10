@@ -1,21 +1,16 @@
 FROM jupyterhub/jupyterhub
 
-RUN pip3 install --no-cache jupyterlab notebook
+RUN pip3 install --no-cache jupyterlab notebook nbgitpuller matplotlib tensorflow \
+  pytorch torchvision torchaudio torchtext \
+  ipywidgets beakerx \
+  bash_kernel nodejs
 
-#RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
-#bash /tmp/miniconda.sh -bfp /usr/local && rm -rf /tmp/miniconda.sh && \
-#    conda install -y python=3 && conda update conda && conda clean --all --yes
+RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
+    bash /tmp/miniconda.sh -bfp /usr/local && rm -rf /tmp/miniconda.sh && \
+    conda install -y python=3 && conda update conda && conda clean --all --yes
 
-#RUN conda install -c conda-forge -c pytorch -c krinsman jupyterlab notebook nbgitpuller matplotlib tensorflow \
-#                                                        pytorch torchvision torchaudio torchtext \
-#                                                        xeus-cling \
-#                                                        ipywidgets beakerx \
-#                                                        bash_kernel \
-#                                                        nodejs \
-#                                                        ijavascript && \
-#    conda clean --all --yes
-
-
+RUN conda install -c conda-forge -c pytorch -c krinsman xeus-cling ijavascript && \
+    conda clean --all --yes
 
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
