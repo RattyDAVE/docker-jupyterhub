@@ -1,7 +1,7 @@
 FROM jupyterhub/jupyterhub
 
 RUN pip3 install --no-cache jupyterlab notebook nbgitpuller matplotlib tensorflow \
-  pytorch torchvision torchaudio torchtext \
+  torch torchvision torchaudio torchtext \
   ipywidgets beakerx \
   bash_kernel nodejs
 
