@@ -1,7 +1,5 @@
 FROM jupyterhub/jupyterhub
 
-ENV DEBIAN_FRONTEND noninteractive
-
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
 COPY scripts /scripts
