@@ -69,8 +69,8 @@ RUN echo "--------------------------------------" && \
 
 #Add Extentions
 #RUN jupyter labextension install jupyterlab-drawio
-RUN jupyter labextension install @wallneradam/run_all_buttons
-RUN jupyter labextension install jupyterlab-spreadsheet
+#RUN jupyter labextension install @wallneradam/run_all_buttons
+#RUN jupyter labextension install jupyterlab-spreadsheet
 
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
