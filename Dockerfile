@@ -39,6 +39,8 @@ RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab no
                                                         ijavascript && \
     conda clean --all --yes
     
+RUN npm rebuild
+
 RUN npm install -g --unsafe-perm ijavascript && ijsinstall --hide-undefined --install=global
 
 #RUN npm install -g --unsafe-perm itypescript && its --ts-hide-undefined --install=global
