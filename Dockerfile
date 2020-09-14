@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:19.10
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV M2_HOME=/usr/share/maven
