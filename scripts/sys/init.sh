@@ -9,6 +9,14 @@ else
    dpkg-reconfigure -f noninteractive tzdata
 fi
 
+echo 'Configuring shared folder…'
+groupadd jupyterhub-users
+
+mkdir -p /srv/scratch
+chown -R root:jupyterhub-users /srv/scratch
+chmod 777 /srv/scratch
+chmod g+s /srv/scratch
+
 #CREATE USERS.
 # username:passsword:Y
 # username2:password2:Y
@@ -33,6 +41,10 @@ if [ -f $file ]
                 chmod -R 700 /run/user/$(id -u $username)/
                 chown -R "$username" /run/user/$(id -u $username)/
                 echo "$username:$password" | chpasswd
+                
+                usermod -aG jupyterhub-users $username
+                ln -s /srv/scratch /home/$username/shared
+                
                 if [ "$is_sudo" = "Y" ]
                   then
                     usermod -aG sudo $username
