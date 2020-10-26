@@ -43,6 +43,9 @@ RUN npm rebuild
 
 RUN npm install -g --unsafe-perm ijavascript && ijsinstall --hide-undefined --install=global
 
+RUN pip3 install --upgrade metakernel
+RUN pip3 install --upgrade calysto-scheme
+
 #RUN npm install -g --unsafe-perm itypescript && its --ts-hide-undefined --install=global
 
 #NodeJS
