@@ -67,6 +67,17 @@ echo "user1:pass:n" > createusers.txt
 docker run -d -v $(pwd)/createusers.txt:/root/createusers.txt -p 8000:8000 rattydave/jupyterhub
 ```
 
+## Auto Update
+
+To automatically update I recomend using watchtower.
+
+```
+docker run -d \
+  --name watchtower \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  v2tec/watchtower 
+```
+
 ## To add SSL
 
 To add SSL authentication you need to open port 80 and 443 to the internet.
