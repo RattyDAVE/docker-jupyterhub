@@ -22,7 +22,6 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
-
 RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
     bash /tmp/miniconda.sh -bfp /usr/local && \
     rm -rf /tmp/miniconda.sh && \
