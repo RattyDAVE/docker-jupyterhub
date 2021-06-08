@@ -29,13 +29,13 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda update conda && \
     conda clean --all --yes
 
-RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow \
-                                                        pytorch torchvision torchaudio torchtext \
-                                                        xeus-cling \
-                                                        ipywidgets beakerx \
-                                                        bash_kernel \
-                                                        nodejs \
-                                                        ijavascript && \
+RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow
+RUN conda install pytorch torchvision torchaudio torchtext
+RUN conda install xeus-cling
+RUN conda install ipywidgets beakerx
+RUN conda install bash_kernel
+RUN conda install nodejs
+RUN conda install ijavascript && \
     conda clean --all --yes
     
 RUN npm rebuild
