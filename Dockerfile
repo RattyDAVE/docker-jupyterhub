@@ -31,7 +31,7 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 
 RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow
 RUN conda install -c pytorch pytorch torchvision torchaudio torchtext
-RUN conda install -c krinsman xeus-cling
+RUN conda install -c conda-forge xeus-cling
 RUN conda install ipywidgets beakerx
 RUN conda install bash_kernel
 RUN conda install nodejs
