@@ -35,12 +35,11 @@ RUN conda install -c conda-forge xeus-cling
 RUN conda install -c conda-forge ipywidgets beakerx
 RUN conda install -c conda-forge bash_kernel
 RUN conda install -c conda-forge nodejs
-RUN conda install -c krinsman ijavascript && \
-    conda clean --all --yes
+#RUN conda install -c krinsman ijavascript && \
+#    conda clean --all --yes
     
-RUN npm rebuild
-
-RUN npm install -g --unsafe-perm ijavascript && ijsinstall --hide-undefined --install=global
+#RUN npm rebuild
+#RUN npm install -g --unsafe-perm ijavascript && ijsinstall --hide-undefined --install=global
 
 #RUN npm install -g --unsafe-perm itypescript && its --ts-hide-undefined --install=global
 
