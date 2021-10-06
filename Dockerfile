@@ -31,9 +31,9 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda clean --all --yes && \
     conda clean --force-pkgs-dirs -y
 
-RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow && \
+RUN conda install -c QuantStack -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow xeus-cling && \
     conda install -c pytorch pytorch torchvision torchaudio torchtext && \
-    conda install -c conda-forge xeus-cling && \
+    ##conda install -c conda-forge xeus-cling && \
     conda install -c conda-forge ipywidgets beakerx && \
     conda install -c conda-forge bash_kernel && \
     conda install -c conda-forge nodejs && \
