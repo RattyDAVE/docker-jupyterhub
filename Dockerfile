@@ -10,7 +10,7 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get update -yqq && \ 
     apt-get install -yqq --no-install-recommends sudo curl git wget tzdata libjpeg-dev bzip2 && \
     apt-get install -yqq python3 python3-pip && \
-    apt-get install lib32ncurses6 && \
+    apt-get install  -yqq lib32ncurses6 && \
     pip3 --no-cache-dir install --upgrade pip setuptools && \
     \
     #Julia && \
