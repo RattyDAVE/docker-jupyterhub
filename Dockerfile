@@ -10,6 +10,7 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
     apt-get update -yqq && \ 
     apt-get install -yqq --no-install-recommends sudo curl git wget tzdata libjpeg-dev bzip2 && \
     apt-get install -yqq python3 python3-pip && \
+    apt-get install lib32ncurses6 && \
     pip3 --no-cache-dir install --upgrade pip setuptools && \
     \
     #Julia && \
@@ -29,12 +30,13 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda update conda && \
     conda clean --all --yes
 
-RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow
-RUN conda install -c pytorch pytorch torchvision torchaudio torchtext
-RUN conda install -c conda-forge xeus-cling
-RUN conda install -c conda-forge ipywidgets beakerx
-RUN conda install -c conda-forge bash_kernel
-RUN conda install -c conda-forge nodejs
+RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow && \
+    conda install -c pytorch pytorch torchvision torchaudio torchtext && \
+    conda install -c conda-forge xeus-cling && \
+    conda install -c conda-forge ipywidgets beakerx && \
+    conda install -c conda-forge bash_kernel && \
+    conda install -c conda-forge nodejs && \
+    conda clean --force-pkgs-dirs -y
 #RUN conda install -c krinsman ijavascript && \
 #    conda clean --all --yes
     
