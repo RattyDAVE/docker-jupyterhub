@@ -25,7 +25,10 @@ RUN mkdir -p /workdir && chmod 777 /workdir && \
 
 RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
     bash /tmp/miniconda.sh -bfp /usr/local && \
-    rm -rf /tmp/miniconda.sh && \
+    rm -rf /tmp/miniconda.sh
+    
+RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main && \
+    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r && \
     conda install -y python=3 && \
     conda update conda && \
     conda clean --all --yes && \
