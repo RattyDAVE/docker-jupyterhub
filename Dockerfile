@@ -34,16 +34,16 @@ RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkg
     conda clean --all --yes && \
     conda clean --force-pkgs-dirs -y
 
-RUN conda install -c QuantStack -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow xeus-cling && \
+RUN conda install -c QuantStack -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow xeus-cling
 
-RUN    conda install -c pytorch pytorch torchvision torchaudio torchtext && \
+RUN    conda install -c pytorch pytorch torchvision torchaudio torchtext
     ##conda install -c conda-forge xeus-cling && \
 
-RUN    conda install -c conda-forge ipywidgets beakerx && \
+RUN    conda install -c conda-forge ipywidgets beakerx
 
-RUN    conda install -c conda-forge bash_kernel && \
+RUN    conda install -c conda-forge bash_kernel
 
-RUN    conda install -c conda-forge nodejs && \
+RUN    conda install -c conda-forge nodejs
 
 RUN    conda clean --all --yes && \
     conda clean --force-pkgs-dirs -y
