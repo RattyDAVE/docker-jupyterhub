@@ -16,6 +16,7 @@ RUN pip install notebook jupyterlab
 #c.Authenticator.allow_all = True
 #EOF
 
+RUN echo -e 'c = get_config() \n\nc.Authenticator.allow_all = True' > /srv/jupyterhub/jupyterhub_config.py
 
 EXPOSE 8000
 
