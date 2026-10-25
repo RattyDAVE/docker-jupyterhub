@@ -1,4 +1,4 @@
-FROM jupyterhub/jupyterhub
+FROM quay.io/jupyterhub/jupyterhub:latest
 
 #ADD settings/jupyter_notebook_config.py /etc/jupyter/
 #ADD settings/jupyterhub_config.py /etc/jupyterhub/
@@ -14,4 +14,5 @@ RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
 
 EXPOSE 8000
 
-CMD "/scripts/sys/init.sh"
+#CMD "/scripts/sys/init.sh"
+CMD ["jupyterhub", "-f", "/srv/jupyterhub/jupyterhub_config.py"]
