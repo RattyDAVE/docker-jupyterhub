@@ -2,8 +2,8 @@ FROM quay.io/jupyterhub/jupyterhub:latest
 
 #ADD settings/jupyter_notebook_config.py /etc/jupyter/
 #ADD settings/jupyterhub_config.py /etc/jupyterhub/
-#ADD StartHere.ipynb /etc/skel
-#COPY scripts /scripts
+ADD StartHere.ipynb /etc/skel
+COPY scripts /scripts
 
 RUN pip install notebook jupyterlab
 
