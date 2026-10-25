@@ -77,5 +77,5 @@ if [ -f /etc/jupyterhub/jupyterhub_config.py ]
     jupyterhub -f /etc/jupyterhub/jupyterhub_config.py
   else
     #jupyterhub --debug
-    jupyterhub 
+    jupyterhub -f /srv/jupyterhub/jupyterhub_config.py
 fi
