@@ -10,11 +10,11 @@ RUN chmod -R 755 /scripts && \
 
 RUN pip install notebook jupyterlab
 
-RUN cat >/srv/jupyterhub/jupyterhub_config.py <<'EOF'
-c = get_config()
-
-c.Authenticator.allow_all = True
-EOF
+#RUN cat >/srv/jupyterhub/jupyterhub_config.py <<'EOF'
+#c = get_config()
+#
+#c.Authenticator.allow_all = True
+#EOF
 
 
 EXPOSE 8000
