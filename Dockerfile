@@ -7,7 +7,10 @@ COPY scripts /scripts
 
 RUN pip install notebook jupyterlab
 
-RUN echo -e 'c = get_config() \n\nc.Authenticator.allow_all = True' > /srv/jupyterhub/jupyterhub_config.py
+RUN echo -e 'c = get_config() \n\nc.Authenticator.allow_all = True\n' > /srv/jupyterhub/jupyterhub_config.py
+
+#RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
+#    > /srv/jupyterhub/jupyterhub_config.py
 
 EXPOSE 8000
 
