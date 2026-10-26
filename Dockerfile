@@ -29,7 +29,7 @@ RUN conda install -c conda-forge xeus-sql
 
 #RUN conda install -c conda-forge xeus-r
 
-RUN conda install -c conda-forge kotlin-jupyter-kernel
+#RUN conda install -c conda-forge kotlin-jupyter-kernel
 
 EXPOSE 8000
 
