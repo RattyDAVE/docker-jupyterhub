@@ -21,6 +21,8 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 
 RUN conda install -c conda-forge xeus-cling
 
+RUN conda install -c conda-forge bash_kernel
+
 EXPOSE 8000
 
 CMD ["/scripts/sys/init.sh"]
