@@ -23,6 +23,14 @@ RUN conda install -c conda-forge xeus-cling
 
 RUN conda install -c conda-forge bash_kernel
 
+RUN conda install -c conda-forge xeus-sqlite
+
+RUN conda install -c conda-forge xeus-sql
+
+RUN conda install -c conda-forge xeus-r
+
+RUN conda install -c conda-forge kotlin-jupyter-kernel
+
 EXPOSE 8000
 
 CMD ["/scripts/sys/init.sh"]
