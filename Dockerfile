@@ -29,11 +29,6 @@ RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp14 --sys-prefix
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp17 --sys-prefix
 
-#/usr/local/share/jupyter/kernels
-#RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp11 --sys-prefix
-#RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp14 --sys-prefix
-#RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp17 --sys-prefix
-
 #RUN conda install -c conda-forge bash_kernel
 
 #RUN conda install -c conda-forge ipywidgets beakerx
