@@ -9,11 +9,11 @@ RUN apt install -y build-essential libc6-dev nodejs npm
 RUN pip install notebook jupyterlab jupyter-c-kernel clang
 RUN install_c_kernel --prefix=/srv/venv
 
-RUN npm install -g ijavascript
-RUN ijsinstall --install=global
+#RUN npm install -g ijavascript
+#RUN ijsinstall --install=global
 
-#RUN npm install -g tslab
-#RUN tslab install --python=python3
+RUN npm install -g tslab
+RUN tslab install --python=python3
 
 RUN apt install -y r-cran-irkernel
 
