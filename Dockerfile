@@ -6,16 +6,14 @@ COPY scripts /scripts
 RUN apt-get update
 RUN apt install -y build-essential libc6-dev nodejs npm
 
+RUN pip install notebook jupyterlab jupyter-c-kernel clang
+RUN install_c_kernel --prefix=/srv/venv
+
 RUN npm install -g ijavascript
 RUN ijsinstall --install=global
 
-RUN npm install -g tslab
-RUN tslab install --python=python3
-
-
-
-RUN pip install notebook jupyterlab jupyter-c-kernel clang
-RUN install_c_kernel --prefix=/srv/venv
+#RUN npm install -g tslab
+#RUN tslab install --python=python3
 
 RUN apt install -y r-cran-irkernel
 
@@ -24,20 +22,20 @@ RUN pip install kotlin-jupyter-kernel
 #
 # Rust + evcxr kernel
 #
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+#RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-ENV PATH="/root/.cargo/bin:${PATH}"
+#ENV PATH="/root/.cargo/bin:${PATH}"
 
-RUN cargo install evcxr_jupyter && \
-    evcxr_jupyter --install
+#RUN cargo install evcxr_jupyter && \
+#    evcxr_jupyter --install
 
 #
 # Go kernel
 #
-RUN go install github.com/gopherdata/gophernotes@latest
+#RUN go install github.com/gopherdata/gophernotes@latest
 
-RUN mkdir -p /usr/local/share/jupyter/kernels/gophernotes && \
-    cp $(go env GOPATH)/bin/gophernotes /usr/local/bin/
+#RUN mkdir -p /usr/local/share/jupyter/kernels/gophernotes && \
+#    cp $(go env GOPATH)/bin/gophernotes /usr/local/bin/
 
 #
 # .NET Interactive
@@ -46,11 +44,11 @@ RUN mkdir -p /usr/local/share/jupyter/kernels/gophernotes && \
 # - F#
 # - PowerShell
 #
-RUN dotnet tool install --global Microsoft.dotnet-interactive
+#RUN dotnet tool install --global Microsoft.dotnet-interactive
 
-ENV PATH="${PATH}:/root/.dotnet/tools"
+#ENV PATH="${PATH}:/root/.dotnet/tools"
 
-RUN dotnet interactive jupyter install
+#RUN dotnet interactive jupyter install
 
 #RUN cp -r /root/.local/share/jupyter/kernels/c /srv/venv/share/jupyter/kernels/
 
