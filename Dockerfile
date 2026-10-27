@@ -22,20 +22,20 @@ RUN pip install kotlin-jupyter-kernel
 #
 # Rust + evcxr kernel
 #
-#RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-#ENV PATH="/root/.cargo/bin:${PATH}"
+ENV PATH="/root/.cargo/bin:${PATH}"
 
-#RUN cargo install evcxr_jupyter && \
-#    evcxr_jupyter --install
+RUN cargo install evcxr_jupyter && \
+    evcxr_jupyter --install
 
 #
 # Go kernel
 #
-#RUN go install github.com/gopherdata/gophernotes@latest
+RUN go install github.com/gopherdata/gophernotes@latest
 
-#RUN mkdir -p /usr/local/share/jupyter/kernels/gophernotes && \
-#    cp $(go env GOPATH)/bin/gophernotes /usr/local/bin/
+RUN mkdir -p /usr/local/share/jupyter/kernels/gophernotes && \
+    cp $(go env GOPATH)/bin/gophernotes /usr/local/bin/
 
 #
 # .NET Interactive
