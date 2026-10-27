@@ -39,10 +39,10 @@ RUN conda install -c conda-forge bash_kernel
 #RUN conda install -c conda-forge ipywidgets beakerx
 
 #RUN conda install -c conda-forge xeus-sqlite
-RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xsqlite --sys-prefix
+#RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xsqlite --sys-prefix
 
 #RUN conda install -c conda-forge xeus-sql
-RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xsql --sys-prefix
+#RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xsql --sys-prefix
 
 #RUN conda install -c conda-forge xeus-r
 
