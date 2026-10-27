@@ -8,7 +8,6 @@ RUN pip install notebook jupyterlab
 RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
     > /srv/jupyterhub/jupyterhub_config.py
 
-
 RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
     bash /tmp/miniconda.sh -bfp /usr/local && \
     rm -rf /tmp/miniconda.sh  && \
@@ -18,6 +17,9 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda update conda && \
     conda clean --all --yes && \
     conda clean --force-pkgs-dirs -y
+
+RUN apt-get update
+RUN apt install python3-pytz
 
 RUN conda install -c conda-forge xeus-cling
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp11 --sys-prefix
