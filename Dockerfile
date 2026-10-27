@@ -19,7 +19,7 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda clean --force-pkgs-dirs -y
 
 RUN apt-get update
-RUN apt install python3-pytz
+RUN apt install -y build-essential libc6-dev
 
 RUN conda install -c conda-forge xeus-cling
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp11 --sys-prefix
