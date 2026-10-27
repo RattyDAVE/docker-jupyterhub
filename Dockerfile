@@ -19,13 +19,13 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda clean --all --yes && \
     conda clean --force-pkgs-dirs -y
 
-RUN conda install -c conda-forge xeus-cling
+#RUN conda install -c conda-forge xeus-cling
 
 RUN conda install -c conda-forge bash_kernel
 
-RUN conda install -c conda-forge xeus-sqlite
+#RUN conda install -c conda-forge xeus-sqlite
 
-RUN conda install -c conda-forge xeus-sql
+#RUN conda install -c conda-forge xeus-sql
 
 #RUN conda install -c conda-forge xeus-r
 
