@@ -7,9 +7,9 @@ RUN apt-get update
 RUN apt install -y build-essential libc6-dev
 
 RUN pip install notebook jupyterlab jupyter-c-kernel clang
-RUN install_c_kernel
+RUN install_c_kernel --prefix=/srv/venv
 
-RUN cp -r /root/.local/share/jupyter/kernels/c /srv/venv/share/jupyter/kernels/
+#RUN cp -r /root/.local/share/jupyter/kernels/c /srv/venv/share/jupyter/kernels/
 
 RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
     > /srv/jupyterhub/jupyterhub_config.py
