@@ -26,13 +26,20 @@ RUN conda install -c conda-forge xeus-cling
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp14 --sys-prefix
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp17 --sys-prefix
 
+#/usr/local/share/jupyter/kernels
+RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp11 --sys-prefix
+RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp14 --sys-prefix
+RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp17 --sys-prefix
+
 RUN conda install -c conda-forge bash_kernel
 
 RUN conda install -c conda-forge ipywidgets beakerx
 
-#RUN conda install -c conda-forge xeus-sqlite
+RUN conda install -c conda-forge xeus-sqlite
+RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xsqlite --sys-prefix
 
-#RUN conda install -c conda-forge xeus-sql
+RUN conda install -c conda-forge xeus-sql
+RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xsql --sys-prefix
 
 #RUN conda install -c conda-forge xeus-r
 
