@@ -19,6 +19,17 @@ RUN apt install -y r-cran-irkernel
 
 RUN pip install kotlin-jupyter-kernel
 
+RUN    apt-get install -y \
+        openjdk-17-jdk \
+        wget \
+        unzip && \
+    cd /tmp && \
+    wget https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip && \
+    unzip ijava-1.3.0.zip -d ijava && \
+    cd ijava && \
+    python3 install.py --sys-prefix && \
+    rm -rf /tmp/ijava*
+
 #
 # Rust + evcxr kernel
 #
