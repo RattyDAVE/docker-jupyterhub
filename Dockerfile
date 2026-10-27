@@ -20,9 +20,9 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda clean --force-pkgs-dirs -y
 
 RUN conda install -c conda-forge xeus-cling
-RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp11 --sys-prefix
-RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp14 --sys-prefix
-RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp17 --sys-prefix
+#RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp11 --sys-prefix
+#RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp14 --sys-prefix
+#RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp17 --sys-prefix
 
 RUN conda install -c conda-forge bash_kernel
 
