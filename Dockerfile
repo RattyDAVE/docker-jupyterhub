@@ -21,6 +21,9 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 RUN apt-get update
 RUN apt install -y build-essential libc6-dev
 
+RUN pip install jupyter-c-kernel
+RUN install_c_kernel
+
 RUN conda install -c conda-forge xeus-cling xeus-sqlite xeus-sql
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp11 --sys-prefix
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp14 --sys-prefix
