@@ -21,7 +21,7 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
 RUN apt-get update
 RUN apt install -y build-essential libc6-dev
 
-RUN conda install -c conda-forge xeus-cling
+RUN conda install -c conda-forge xeus-cling xeus-sqlite xeus-sql
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp11 --sys-prefix
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp14 --sys-prefix
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp17 --sys-prefix
@@ -35,10 +35,10 @@ RUN conda install -c conda-forge bash_kernel
 
 #RUN conda install -c conda-forge ipywidgets beakerx
 
-RUN conda install -c conda-forge xeus-sqlite
+#RUN conda install -c conda-forge xeus-sqlite
 RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xsqlite --sys-prefix
 
-RUN conda install -c conda-forge xeus-sql
+#RUN conda install -c conda-forge xeus-sql
 RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xsql --sys-prefix
 
 #RUN conda install -c conda-forge xeus-r
