@@ -12,14 +12,13 @@ The Jupyter Notebook is an open-source web application that allows you to create
 
 ## Contents
 
-- Base is Ubuntu 20.04
-- xeus-cling (provides interactive C++)
-- BeakerX 1.4.1 (provides Groovy, Scala, Clojure, Kotlin, Java, and SQL)
-- Julia 1.0.4
-- NodeJS
+- C (provides interactive C++)
+- JavaScript
+- TypeScript
+- R
+- Kotlin
+- Java
 - Python3
-  - Tensorflow 
-  - Torch
   
 ## Install  
 
