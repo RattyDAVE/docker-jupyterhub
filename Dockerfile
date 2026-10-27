@@ -24,15 +24,15 @@ RUN apt install -y build-essential libc6-dev
 RUN pip install jupyter-c-kernel
 RUN install_c_kernel
 
-RUN conda install -c conda-forge xeus-cling xeus-sqlite xeus-sql
+#RUN conda install -c conda-forge xeus-cling xeus-sqlite xeus-sql
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp11 --sys-prefix
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp14 --sys-prefix
 #RUN jupyter kernelspec install PREFIX/share/jupyter/xcpp17 --sys-prefix
 
 #/usr/local/share/jupyter/kernels
-RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp11 --sys-prefix
-RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp14 --sys-prefix
-RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp17 --sys-prefix
+#RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp11 --sys-prefix
+#RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp14 --sys-prefix
+#RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp17 --sys-prefix
 
 RUN conda install -c conda-forge bash_kernel
 
