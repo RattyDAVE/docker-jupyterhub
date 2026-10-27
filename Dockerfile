@@ -33,7 +33,7 @@ RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xcpp17 --sys-pre
 
 RUN conda install -c conda-forge bash_kernel
 
-RUN conda install -c conda-forge ipywidgets beakerx
+#RUN conda install -c conda-forge ipywidgets beakerx
 
 RUN conda install -c conda-forge xeus-sqlite
 RUN jupyter kernelspec install /usr/local/share/jupyter/kernels/xsqlite --sys-prefix
