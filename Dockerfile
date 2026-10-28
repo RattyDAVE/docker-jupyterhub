@@ -3,6 +3,9 @@ FROM quay.io/jupyterhub/jupyterhub:latest
 ADD StartHere.ipynb /etc/skel
 COPY scripts /scripts
 
+#
+# Base packages
+#
 RUN apt-get update && \
     apt-get install -y \
         build-essential \
@@ -11,7 +14,8 @@ RUN apt-get update && \
         npm \
         openjdk-17-jdk \
         wget \
-        unzip && \
+        unzip \
+        curl && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -23,7 +27,8 @@ RUN pip install --no-cache-dir \
     jupyterlab \
     jupyter-c-kernel \
     clang \
-    kotlin-jupyter-kernel
+    kotlin-jupyter-kernel \
+    bash_kernel
 
 #
 # C Kernel
@@ -31,7 +36,12 @@ RUN pip install --no-cache-dir \
 RUN install_c_kernel --prefix=/srv/venv
 
 #
-# TypeScript Kernel
+# Bash Kernel
+#
+RUN python -m bash_kernel.install
+
+#
+# TypeScript + JavaScript
 #
 RUN npm install -g tslab
 RUN tslab install --python=python3
@@ -40,7 +50,8 @@ RUN tslab install --python=python3
 # R Kernel
 #
 RUN apt-get update && \
-    apt-get install -y r-cran-irkernel
+    apt-get install -y r-cran-irkernel && \
+    apt-get clean
 
 #
 # Java Kernel (IJava)
@@ -53,20 +64,30 @@ RUN cd /tmp && \
     rm -rf /tmp/ijava*
 
 #
-# Bash
-#
-RUN pip install bash_kernel && \
-    python -m bash_kernel.install
-
-#
-# RUST
+# Rust
 #
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-RUN cargo install evcxr_jupyter --version 0.21.0 && \
+RUN cargo install evcxr_jupyter && \
     evcxr_jupyter --install
+
+#
+# Make Rust kernel available to all users
+#
+RUN jupyter kernelspec install \
+      /root/.local/share/jupyter/kernels/rust \
+      --prefix=/srv/venv \
+      --replace
+
+#
+# Make C kernel available to all users
+#
+RUN cp -r \
+      /root/.local/share/jupyter/kernels/c \
+      /srv/venv/share/jupyter/kernels/ || true
+
 #
 # JupyterHub Configuration
 #
