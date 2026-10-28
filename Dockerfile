@@ -4,7 +4,7 @@ ADD StartHere.ipynb /etc/skel
 COPY scripts /scripts
 
 #
-# Base packages
+# Base packages and R Kernel
 #
 RUN apt-get update && \
     apt-get install -y \
@@ -15,7 +15,8 @@ RUN apt-get update && \
         openjdk-17-jdk \
         wget \
         unzip \
-        curl && \
+        curl \
+        r-cran-irkernel && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -45,13 +46,6 @@ RUN python -m bash_kernel.install
 #
 RUN npm install -g tslab
 RUN tslab install --python=python3
-
-#
-# R Kernel
-#
-RUN apt-get update && \
-    apt-get install -y r-cran-irkernel && \
-    apt-get clean
 
 #
 # Java Kernel (IJava)
