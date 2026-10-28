@@ -30,6 +30,18 @@ RUN    apt-get install -y \
     python3 install.py --sys-prefix && \
     rm -rf /tmp/ijava*
 
+# Install Clojure CLI
+RUN curl -L https://github.com/clojure/brew-install/releases/latest/download/linux-install.sh \
+    -o /tmp/linux-install.sh && \
+    chmod +x /tmp/linux-install.sh && \
+    /tmp/linux-install.sh
+
+# Install Clojure Jupyter kernel
+RUN clojure -Ttools install-latest :lib io.github.clojupyter/clojupyter :as clojupyter
+
+# Register kernel with Jupyter
+RUN clojure -M -m clojupyter.cmdline install --ident clojure
+
 #
 # Rust + evcxr kernel
 #
