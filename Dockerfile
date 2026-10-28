@@ -6,7 +6,14 @@ COPY scripts /scripts
 RUN apt-get update
 RUN apt install -y build-essential libc6-dev nodejs npm
 
-RUN pip install --no-cache-dir notebook jupyterlab jupyter-c-kernel clang beakerx
+RUN pip install --no-cache-dir \
+    setuptools \
+    notebook \
+    jupyterlab \
+    jupyter-c-kernel \
+    clang \
+    beakerx
+
 RUN install_c_kernel --prefix=/srv/venv
 RUN beakerx install
 
