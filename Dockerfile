@@ -64,7 +64,7 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-RUN cargo install evcxr_jupyter && \
+RUN cargo install evcxr_jupyter --version 0.20.0 && \
     evcxr_jupyter --install
 
 #
