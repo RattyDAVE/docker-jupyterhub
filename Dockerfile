@@ -20,6 +20,7 @@ RUN apt install -y r-cran-irkernel
 RUN pip install kotlin-jupyter-kernel
 
 RUN    apt-get install -y \
+        git \
         openjdk-17-jdk \
         wget \
         unzip && \
