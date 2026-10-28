@@ -53,6 +53,21 @@ RUN cd /tmp && \
     rm -rf /tmp/ijava*
 
 #
+# Bash
+#
+RUN pip install bash_kernel && \
+    python -m bash_kernel.install
+
+#
+# RUST
+#
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+RUN cargo install evcxr_jupyter && \
+    evcxr_jupyter --install
+#
 # JupyterHub Configuration
 #
 RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
