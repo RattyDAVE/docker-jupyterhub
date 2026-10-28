@@ -6,6 +6,9 @@ COPY scripts /scripts
 RUN apt-get update
 RUN apt install -y build-essential libc6-dev nodejs npm
 
+RUN pip install --no-cache-dir beakerx
+RUN beakerx install
+
 RUN pip install notebook jupyterlab jupyter-c-kernel clang
 RUN install_c_kernel --prefix=/srv/venv
 
@@ -20,7 +23,6 @@ RUN apt install -y r-cran-irkernel
 RUN pip install kotlin-jupyter-kernel
 
 RUN    apt-get install -y \
-        git \
         openjdk-17-jdk \
         wget \
         unzip && \
@@ -30,20 +32,6 @@ RUN    apt-get install -y \
     cd ijava && \
     python3 install.py --sys-prefix && \
     rm -rf /tmp/ijava*
-    
-# Clojure CLI
-RUN curl -L https://github.com/clojure/brew-install/releases/latest/download/linux-install.sh \
-    -o /tmp/linux-install.sh && \
-    chmod +x /tmp/linux-install.sh && \
-    /tmp/linux-install.sh
-
-# Install clojupyter
-RUN clojure -Ttools install-latest \
-    :lib io.github.clojupyter/clojupyter \
-    :as clojupyter
-
-# Register kernel
-RUN clojure -M -m clojupyter.cmdline install --ident clojure
 
 #
 # Rust + evcxr kernel
