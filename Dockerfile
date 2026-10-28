@@ -6,11 +6,9 @@ COPY scripts /scripts
 RUN apt-get update
 RUN apt install -y build-essential libc6-dev nodejs npm
 
-RUN pip install --no-cache-dir beakerx
-RUN beakerx install
-
-RUN pip install notebook jupyterlab jupyter-c-kernel clang
+RUN pip install --no-cache-dir notebook jupyterlab jupyter-c-kernel clang beakerx
 RUN install_c_kernel --prefix=/srv/venv
+RUN beakerx install
 
 #RUN npm install -g ijavascript
 #RUN ijsinstall --install=global
