@@ -24,12 +24,12 @@ RUN apt-get update && \
 # Python + JupyterLab
 #
 RUN pip install --no-cache-dir \
-    notebook \
-    jupyterlab \
-    jupyter-c-kernel \
-    clang \
-    kotlin-jupyter-kernel \
-    bash_kernel
+        notebook \
+        jupyterlab \
+        jupyter-c-kernel \
+        clang \
+        kotlin-jupyter-kernel \
+        bash_kernel
 
 #
 # C Kernel
@@ -44,8 +44,8 @@ RUN python -m bash_kernel.install
 #
 # TypeScript + JavaScript
 #
-RUN npm install -g tslab
-RUN tslab install --python=python3
+RUN npm install -g tslab && \
+    tslab install --python=python3
 
 #
 # Java Kernel (IJava)
@@ -60,20 +60,30 @@ RUN cd /tmp && \
 #
 # Rust
 #
+ENV CARGO_HOME=/opt/cargo
+ENV RUSTUP_HOME=/opt/rustup
+ENV PATH=/opt/cargo/bin:$PATH
+
+RUN mkdir -p /opt/cargo /opt/rustup
+
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-ENV PATH="/root/.cargo/bin:${PATH}"
+RUN rustup default stable
 
-RUN cargo install evcxr_jupyter --version 0.20.0 && \
-    evcxr_jupyter --install
+RUN cargo install evcxr_jupyter --version 0.20.0
+
+RUN evcxr_jupyter --install
 
 #
 # Make Rust kernel available to all users
 #
-RUN jupyter kernelspec install \
-      /root/.local/share/jupyter/kernels/rust \
-      --prefix=/srv/venv \
-      --replace
+RUN mkdir -p /srv/venv/share/jupyter/kernels && \
+    cp -r /root/.local/share/jupyter/kernels/rust \
+          /srv/venv/share/jupyter/kernels/
+
+RUN sed -i \
+    's#/root/.cargo/bin/evcxr_jupyter#/opt/cargo/bin/evcxr_jupyter#' \
+    /srv/venv/share/jupyter/kernels/rust/kernel.json
 
 #
 # Make C kernel available to all users
@@ -81,6 +91,13 @@ RUN jupyter kernelspec install \
 RUN cp -r \
       /root/.local/share/jupyter/kernels/c \
       /srv/venv/share/jupyter/kernels/ || true
+
+#
+# Verify Rust installation during build
+#
+RUN rustc --version && \
+    cargo --version && \
+    rustup show
 
 #
 # JupyterHub Configuration
