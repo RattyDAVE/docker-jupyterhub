@@ -116,6 +116,8 @@ RUN cp -r \
 RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
     > /srv/jupyterhub/jupyterhub_config.py
 
+ADD https://github.com/jakevdp/PythonDataScienceHandbook/archive/refs/heads/master.zip /tmp
+
 EXPOSE 8000
 
 CMD ["/scripts/sys/init.sh"]
