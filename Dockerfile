@@ -4,7 +4,7 @@ ADD StartHere.ipynb /etc/skel
 COPY scripts /scripts
 
 #
-# Base packages and R Kernel
+# Base packages
 #
 RUN apt-get update && \
     apt-get install -y \
@@ -21,7 +21,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 #
-# Python + JupyterLab
+# Python + Jupyter
 #
 RUN pip install --no-cache-dir \
         notebook \
@@ -42,13 +42,13 @@ RUN install_c_kernel --prefix=/srv/venv
 RUN python -m bash_kernel.install
 
 #
-# TypeScript + JavaScript
+# TypeScript / JavaScript
 #
 RUN npm install -g tslab && \
     tslab install --python=python3
 
 #
-# Java Kernel (IJava)
+# Java (IJava)
 #
 RUN cd /tmp && \
     wget https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip && \
@@ -64,30 +64,19 @@ ENV CARGO_HOME=/opt/cargo
 ENV RUSTUP_HOME=/opt/rustup
 ENV PATH=/opt/cargo/bin:$PATH
 
-RUN mkdir -p /opt/cargo /opt/rustup
-
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-
-RUN rustup default stable
-
-RUN cargo install evcxr_jupyter --version 0.20.0
-
-RUN evcxr_jupyter --install
+RUN mkdir -p /opt/cargo /opt/rustup && \
+    curl https://sh.rustup.rs -sSf | sh -s -- -y && \
+    rustup default stable && \
+    cargo install evcxr_jupyter --version 0.20.0 && \
+    evcxr_jupyter --install
 
 #
-# Make Rust kernel available to Jupyter
+# Rust kernel for JupyterHub users
 #
 RUN mkdir -p /srv/venv/share/jupyter/kernels && \
     cp -r /root/.local/share/jupyter/kernels/rust \
           /srv/venv/share/jupyter/kernels/
 
-RUN sed -i \
-    's#/root/.cargo/bin/evcxr_jupyter#/opt/cargo/bin/evcxr_jupyter#' \
-    /srv/venv/share/jupyter/kernels/rust/kernel.json
-
-#
-# Inject Rust environment into kernel
-#
 RUN cat > /srv/venv/share/jupyter/kernels/rust/kernel.json << 'EOF'
 {
   "argv": [
@@ -107,16 +96,8 @@ RUN cat > /srv/venv/share/jupyter/kernels/rust/kernel.json << 'EOF'
 EOF
 
 #
-# Make Rust available to all users
+# Make Rust commands visible to all users
 #
-RUN cat > /etc/profile.d/rust.sh << 'EOF'
-export CARGO_HOME=/opt/cargo
-export RUSTUP_HOME=/opt/rustup
-export PATH=/opt/cargo/bin:$PATH
-EOF
-
-RUN chmod 755 /etc/profile.d/rust.sh
-
 RUN ln -sf /opt/cargo/bin/rustc /usr/local/bin/rustc && \
     ln -sf /opt/cargo/bin/cargo /usr/local/bin/cargo && \
     ln -sf /opt/cargo/bin/rustup /usr/local/bin/rustup && \
@@ -130,14 +111,7 @@ RUN cp -r \
       /srv/venv/share/jupyter/kernels/ || true
 
 #
-# Verify Rust installation during build
-#
-RUN rustc --version && \
-    cargo --version && \
-    rustup show
-
-#
-# JupyterHub Configuration
+# JupyterHub config
 #
 RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
     > /srv/jupyterhub/jupyterhub_config.py
