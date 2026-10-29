@@ -117,6 +117,7 @@ RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
     > /srv/jupyterhub/jupyterhub_config.py
 
 ADD https://github.com/jakevdp/PythonDataScienceHandbook/archive/refs/heads/master.zip /tmp
+RUN unzip /tmp/master.zip -d /etc/skel
 
 EXPOSE 8000
 
