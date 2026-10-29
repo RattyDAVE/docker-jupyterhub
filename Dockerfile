@@ -86,6 +86,27 @@ RUN sed -i \
     /srv/venv/share/jupyter/kernels/rust/kernel.json
 
 #
+# Inject Rust environment into kernel
+#
+RUN cat > /srv/venv/share/jupyter/kernels/rust/kernel.json << 'EOF'
+{
+  "argv": [
+    "/opt/cargo/bin/evcxr_jupyter",
+    "--control_file",
+    "{connection_file}"
+  ],
+  "display_name": "Rust",
+  "language": "rust",
+  "interrupt_mode": "message",
+  "env": {
+    "PATH": "/opt/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "CARGO_HOME": "/opt/cargo",
+    "RUSTUP_HOME": "/opt/rustup"
+  }
+}
+EOF
+
+#
 # Make Rust available to all users
 #
 RUN cat > /etc/profile.d/rust.sh << 'EOF'
