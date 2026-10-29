@@ -75,7 +75,7 @@ RUN cargo install evcxr_jupyter --version 0.20.0
 RUN evcxr_jupyter --install
 
 #
-# Make Rust kernel available to all users
+# Make Rust kernel available to Jupyter
 #
 RUN mkdir -p /srv/venv/share/jupyter/kernels && \
     cp -r /root/.local/share/jupyter/kernels/rust \
@@ -84,6 +84,22 @@ RUN mkdir -p /srv/venv/share/jupyter/kernels && \
 RUN sed -i \
     's#/root/.cargo/bin/evcxr_jupyter#/opt/cargo/bin/evcxr_jupyter#' \
     /srv/venv/share/jupyter/kernels/rust/kernel.json
+
+#
+# Make Rust available to all users
+#
+RUN cat > /etc/profile.d/rust.sh << 'EOF'
+export CARGO_HOME=/opt/cargo
+export RUSTUP_HOME=/opt/rustup
+export PATH=/opt/cargo/bin:$PATH
+EOF
+
+RUN chmod 755 /etc/profile.d/rust.sh
+
+RUN ln -sf /opt/cargo/bin/rustc /usr/local/bin/rustc && \
+    ln -sf /opt/cargo/bin/cargo /usr/local/bin/cargo && \
+    ln -sf /opt/cargo/bin/rustup /usr/local/bin/rustup && \
+    ln -sf /opt/cargo/bin/evcxr_jupyter /usr/local/bin/evcxr_jupyter
 
 #
 # Make C kernel available to all users
