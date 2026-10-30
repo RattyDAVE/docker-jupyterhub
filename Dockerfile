@@ -116,27 +116,27 @@ RUN cp -r \
 RUN printf "c = get_config()\n\nc.Authenticator.allow_all = True\n" \
     > /srv/jupyterhub/jupyterhub_config.py
 
-RUN cd \tmp && \
+RUN cd /tmp && \
     wget https://github.com/jakevdp/PythonDataScienceHandbook/archive/refs/heads/master.zip && \
     unzip /tmp/master.zip -d /etc/skel && \
     rm /tmp/master.zip
 
-RUN cd \tmp && \
+RUN cd /tmp && \
     wget https://github.com/8greg8/interactive_c_tutorial/archive/refs/heads/master.zip && \
     unzip /tmp/master.zip -d /etc/skel && \
     rm /tmp/master.zip
 
-RUN cd \tmp && \
+RUN cd /tmp && \
     wget https://github.com/Yuanqi-Hong/cpp-learning/archive/refs/heads/master.zip && \
     unzip /tmp/master.zip -d /etc/skel && \
     rm /tmp/master.zip
 
-RUN cd \tmp && \
+RUN cd /tmp && \
     wget https://github.com/rambasnet/Bash-Script-Fundamentals/archive/refs/heads/main.zip && \
     unzip /tmp/main.zip -d /etc/skel && \
     rm /tmp/main.zip
 
-RUN cd \tmp && \
+RUN cd /tmp && \
     wget https://github.com/rambasnet/NodeJS/archive/refs/heads/main.zip && \
     unzip /tmp/main.zip -d /etc/skel && \
     rm /tmp/main.zip
